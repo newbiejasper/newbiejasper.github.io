@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数学分析2 定积分综合及广义积分初步]]></title>
+    <url>%2F2019%2F03%2F20%2F%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%902-%E5%AE%9A%E7%A7%AF%E5%88%86%E7%BB%BC%E5%90%88%E5%8F%8A%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86%E5%88%9D%E6%AD%A5%2F</url>
+    <content type="text"><![CDATA[有限区间定积分综合 周期相关问题； 无穷范数问题； 区间变化； 零点问题。 广义积分 广义积分敛散性的判断11条。 ​ ​]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
+      <tags>
+        <tag>周期性，范数，区间变换，零点问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第七章 中值定理和定积分的应用]]></title>
     <url>%2F2019%2F03%2F13%2F%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%902-%E7%AC%AC%E4%B8%83%E7%AB%A07-5-7-6%E8%8A%82%2F</url>
     <content type="text"><![CDATA[中值定理 积分第一中值定理； 积分第二中值定理； 带积分余项的Taylor公式。 定积分的应用 young不等式； 会求曲线长度，旋转体体积和平面图形面积等。]]></content>
