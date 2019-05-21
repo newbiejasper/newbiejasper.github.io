@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[第十一章 幂级数收敛半径与收敛域]]></title>
+    <url>%2F2019%2F05%2F15%2F%E5%B9%82%E7%BA%A7%E6%95%B0%E6%94%B6%E6%95%9B%E5%8D%8A%E5%BE%84%E4%B8%8E%E6%94%B6%E6%95%9B%E5%9F%9F%2F</url>
+    <content type="text"><![CDATA[幂级数 收敛半径和收敛域 和函数 $sin(n!\pi x)$的收敛域的特殊情况]]></content>
+      <tags>
+        <tag>幂级数，收敛域</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[函数序列与函数项级数的换序问题]]></title>
     <url>%2F2019%2F05%2F08%2F%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97%E4%B8%8E%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0%E7%9A%84%E6%8D%A2%E5%BA%8F%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[换序问题 连续性换序 积分换序 求导换序]]></content>
