@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[总复习]]></title>
+    <url>%2F2019%2F06%2F09%2F%E6%80%BB%E5%A4%8D%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[总复习 查漏补缺 裴礼文习题集部分题目]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[第十二章 Fourier级数展开]]></title>
     <url>%2F2019%2F05%2F29%2FFourier%E7%BA%A7%E6%95%B0%E5%B1%95%E5%BC%80%2F</url>
     <content type="text"><![CDATA[Fourier级数 展开的意义，系数在有限维空间中的对应关系 误差标准—-平方平均误差 收敛性判定的依据 parseval等式，Bessel不等式 一致收敛性]]></content>
