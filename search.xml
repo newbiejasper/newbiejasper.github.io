@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[第十三章 多元函数的极限和连续]]></title>
+    <url>%2F2019%2F09%2F19%2F%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%2F</url>
+    <content type="text"><![CDATA[高维欧式空间基本内容 1.1 开集，闭集，聚点，边界点，闭包定义； 1.2 极限与累次极限； 1.3 函数的连续性和一致连续性。 极限与连续性 2.1 开集和闭集在连续映射下的像与原像问题； 2.2 道路连通集在连续映射下的像与原像问题； 2.3 全连续与单变量连续的关系，在何种条件下可以互推； 2.4 连续函数和一致连续函数类似于一元函数情形的性质。]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
+      <tags>
+        <tag>极限</tag>
+        <tag>累次极限</tag>
+        <tag>连续</tag>
+        <tag>一致连续</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[总复习]]></title>
     <url>%2F2019%2F06%2F09%2F%E6%80%BB%E5%A4%8D%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[总复习 查漏补缺 裴礼文习题集部分题目]]></content>
