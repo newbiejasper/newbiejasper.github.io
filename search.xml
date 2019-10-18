@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[第十四章 多元微分学第二部分]]></title>
+    <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%2F</url>
+    <content type="text"><![CDATA[多元微分学 高阶偏导数； 偏导数换序问题。]]></content>
+      <tags>
+        <tag>高阶导数，偏导数换序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[第十四章 多元微分学第一部分]]></title>
+    <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%2F</url>
+    <content type="text"><![CDATA[多元微分学 方向导数，偏导数，梯度，可微的定义； 可微与偏导数存在，连续之间的关系； 凸域中的问题；]]></content>
+      <tags>
+        <tag>偏导数，方向导数，梯度，全微分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第十三章 多元函数的极限和连续]]></title>
     <url>%2F2019%2F09%2F19%2F%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%2F</url>
     <content type="text"><![CDATA[高维欧式空间基本内容 1.1 开集，闭集，聚点，边界点，闭包定义； 1.2 极限与累次极限； 1.3 函数的连续性和一致连续性。 极限与连续性 2.1 开集和闭集在连续映射下的像与原像问题； 2.2 道路连通集在连续映射下的像与原像问题； 2.3 全连续与单变量连续的关系，在何种条件下可以互推； 2.4 连续函数和一致连续函数类似于一元函数情形的性质。]]></content>
