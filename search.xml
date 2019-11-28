@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常见积分区域的三维图形]]></title>
+    <url>%2F2019%2F11%2F28%2F%E5%B8%B8%E8%A7%81%E7%A7%AF%E5%88%86%E5%8C%BA%E5%9F%9F%E7%9A%84%E4%B8%89%E7%BB%B4%E5%9B%BE%E5%BD%A2%2F</url>
+    <content type="text"><![CDATA[掌握常见的积分区域]]></content>
+      <tags>
+        <tag>积分区域</tag>
+        <tag>mathematica</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[期中考试-伍]]></title>
     <url>%2F2019%2F11%2F17%2F%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95-%E4%BC%8D%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -47,19 +56,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[第十四章 多元微分学第二部分]]></title>
-    <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%2F</url>
-    <content type="text"><![CDATA[多元微分学 高阶偏导数； 偏导数换序问题。]]></content>
-      <tags>
-        <tag>高阶导数，偏导数换序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[第十四章 多元微分学第一部分]]></title>
     <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%2F</url>
     <content type="text"><![CDATA[多元微分学 方向导数，偏导数，梯度，可微的定义； 可微与偏导数存在，连续之间的关系； 凸域中的问题；]]></content>
       <tags>
         <tag>偏导数，方向导数，梯度，全微分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[第十四章 多元微分学第二部分]]></title>
+    <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%2F</url>
+    <content type="text"><![CDATA[多元微分学 高阶偏导数； 偏导数换序问题。]]></content>
+      <tags>
+        <tag>高阶导数，偏导数换序</tag>
       </tags>
   </entry>
   <entry>
