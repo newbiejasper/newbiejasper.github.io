@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[第十七章 含参变量积分]]></title>
+    <url>%2F2019%2F12%2F26%2F%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E5%90%AB%E5%8F%82%E5%8F%98%E9%87%8F%E7%A7%AF%E5%88%86%2F</url>
+    <content type="text"><![CDATA[含参变量积分 换序的条件； 一致收敛性判断； 三种常见的求含参变量积分的方式。]]></content>
+      <tags>
+        <tag>换序</tag>
+        <tag>含参变量积分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第十六章 曲线和曲面积分]]></title>
     <url>%2F2019%2F12%2F12%2F%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E6%9B%B2%E7%BA%BF%E5%92%8C%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86%2F</url>
     <content type="text"><![CDATA[曲线曲面积分 曲线，曲面的参数方程； 新坐标系的建立 积分区域的对称性； gauss-green公式，分部积分公式与平均值公式。]]></content>
