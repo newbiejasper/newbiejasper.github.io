@@ -109,7 +109,7 @@
 
 
 
-  <meta name="keywords" content="周期性，范数，区间变换，零点问题,">
+  <meta name="keywords" content="过滤，搜索,">
 
 
 
@@ -120,25 +120,20 @@
 
 
 
-<meta name="description" content="有限区间定积分综合  周期相关问题；  无穷范数问题；  区间变化；  零点问题。">
-<meta name="keywords" content="周期性，范数，区间变换，零点问题">
+<meta name="description" content="[TOC] 本文主要介绍MySQL基本的过滤和搜索服务, 包括where子句的过滤操作，in, not in的操作符。更精确地，可以采用like,或者regexp写正则表达式进行匹配。">
+<meta name="keywords" content="过滤，搜索">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第七八章 定积分综合及广义积分初步">
-<meta property="og:url" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/index.html">
+<meta property="og:title" content="MySQL过滤搜索操作">
+<meta property="og:url" content="https://newbiejasper.github.io/2020/04/01/MySQL过滤搜索操作/index.html">
 <meta property="og:site_name" content="Mathematics-Physics-Biology-Chemistry-Programming">
-<meta property="og:description" content="有限区间定积分综合  周期相关问题；  无穷范数问题；  区间变化；  零点问题。">
+<meta property="og:description" content="[TOC] 本文主要介绍MySQL基本的过滤和搜索服务, 包括where子句的过滤操作，in, not in的操作符。更精确地，可以采用like,或者regexp写正则表达式进行匹配。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日%20定积分综合及广义积分初步_页面_1.png">
-<meta property="og:image" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日%20定积分综合及广义积分初步_页面_2.png">
-<meta property="og:image" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日%20定积分综合及广义积分初步_页面_3.png">
-<meta property="og:image" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日%20定积分综合及广义积分初步_页面_4.png">
-<meta property="og:image" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日%20定积分综合及广义积分初步_页面_5.png">
-<meta property="og:image" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日%20定积分综合及广义积分初步_页面_6.png">
-<meta property="og:updated_time" content="2019-04-12T00:41:51.104Z">
+<meta property="og:image" content="https://newbiejasper.github.io/2020/04/01/MySQL过滤搜索操作/字符类.png">
+<meta property="og:updated_time" content="2020-04-01T17:07:54.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第七八章 定积分综合及广义积分初步">
-<meta name="twitter:description" content="有限区间定积分综合  周期相关问题；  无穷范数问题；  区间变化；  零点问题。">
-<meta name="twitter:image" content="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日%20定积分综合及广义积分初步_页面_1.png">
+<meta name="twitter:title" content="MySQL过滤搜索操作">
+<meta name="twitter:description" content="[TOC] 本文主要介绍MySQL基本的过滤和搜索服务, 包括where子句的过滤操作，in, not in的操作符。更精确地，可以采用like,或者regexp写正则表达式进行匹配。">
+<meta name="twitter:image" content="https://newbiejasper.github.io/2020/04/01/MySQL过滤搜索操作/字符类.png">
 
 
 
@@ -168,13 +163,13 @@
 
 
 
-  <link rel="canonical" href="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/">
+  <link rel="canonical" href="https://newbiejasper.github.io/2020/04/01/MySQL过滤搜索操作/">
 
 
 
 
 
-  <title>第七八章 定积分综合及广义积分初步 | Mathematics-Physics-Biology-Chemistry-Programming</title>
+  <title>MySQL过滤搜索操作 | Mathematics-Physics-Biology-Chemistry-Programming</title>
   
 
 
@@ -353,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newbiejasper.github.io/2019/03/20/数学分析2-定积分综合及广义积分初步/">
+    <link itemprop="mainEntityOfPage" href="https://newbiejasper.github.io/2020/04/01/MySQL过滤搜索操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Newbiejasper">
@@ -370,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第七八章 定积分综合及广义积分初步</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL过滤搜索操作</h1>
         
 
         <div class="post-meta">
@@ -382,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T00:00:00+08:00">
-                2019-03-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-01T16:12:28+08:00">
+                2020-04-01
               </time>
             
 
@@ -405,8 +400,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数学分析2/" itemprop="url" rel="index">
-                    <span itemprop="name">数学分析2</span>
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
                   </a>
                 </span>
 
@@ -441,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  45
+                  1.9k
                 </span>
               
 
@@ -466,28 +461,279 @@
       
 
       
-        <ol>
-<li><p>有限区间定积分综合</p>
+        <p>[TOC]</p>
+<p>本文主要介绍MySQL基本的过滤和搜索服务, 包括where子句的过滤操作，in, not in的操作符。更精确地，可以采用like,或者regexp写正则表达式进行匹配。</p>
+<a id="more"></a>
+<h1 id="第六章-过滤数据"><a href="#第六章-过滤数据" class="headerlink" title="第六章 过滤数据"></a>第六章 过滤数据</h1><p>想象一下，我们现在有一个学生信息的表，学校要求开展关于少数民族的活动，我们想知道班级里有多少人是少数民族，于是我们需要抽取出民族非汉的所有学生，此时我们利用之前学习的检索是做不到的，这也就是我们接下来要介绍的过滤和搜索服务。</p>
+<p>WHERE子句是执行过滤操作的关键字。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SELECT</strong> prod_name,prod_price <strong>FROM</strong> products <strong>WHERE</strong> prod_price = 2.5;</td>
+<td>过滤出prod_price为2.5的列</td>
+<td>相等的过滤</td>
+</tr>
+<tr>
+<td>=；&lt;&gt;(不等) ; !=(不等) ; &lt; ; &gt; ; &lt;= ; &gt;= ; BETWEEN a AND b</td>
+<td>不同的where子句的操作符</td>
+<td>BETWEEN的格式注意一下</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name,prod_price <strong>FROM</strong> products <strong>WHERE</strong> prod_name = “fuses”;</td>
+<td>字符串相等</td>
+<td>不区分大小写，也会匹配Fuses</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name,prod_price <strong>FROM</strong> products <strong>WHERE</strong> prod_price <strong>BETWEEN</strong> 5 <strong>AND</strong> 10;</td>
+<td>prod_price在5-10之间</td>
+<td>包括两个端点处的值</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_price <strong>IS</strong> <strong>NULL</strong>;</td>
+<td>空值检查</td>
+<td>注意0,空字符串，空格等都不属于空值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>空值的场景，假设是在搜集估计的信息，可能有些顾客不愿意或者没有提供电子邮件或者电话号码，则会出现空值，我们通常会在创建数据库时指定某列是否允许空值。</p>
+<p><strong>注意</strong>：用其他的过滤条件不会找出具有NULL值的行，因为NULL与其他条件不匹配。</p>
+<h1 id="第七章-数据过滤"><a href="#第七章-数据过滤" class="headerlink" title="第七章 数据过滤"></a>第七章 数据过滤</h1><p>WHERE子句允许逻辑操作符，不同的WHERE子句用AND或OR进行连接。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SELECT</strong> prod_id,prod_name,prod_price <strong>FROM</strong> products <strong>WHERE</strong> vend_id=1003 <strong>AND</strong> prod_price &lt;= 10;</td>
+<td>AND逻辑操作符，与</td>
+<td>集合中的交集操作</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name,prod_price <strong>FROM</strong> products <strong>WHERE</strong> vend_id =1002 <strong>OR</strong> vend_id =1003;</td>
+<td>OR逻辑操作符，或</td>
+<td>集合中的并集操作</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name,prod_price <strong>FROM</strong> products <strong>WHERE</strong> vend_id <strong>IN</strong> (1002,1003) <strong>ORDER BY</strong> prod_name;</td>
+<td>IN指定条件范围，括号内所有值可以进行匹配，以逗号分隔</td>
+<td>和OR起到的作用一致</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name,prod_price <strong>FROM</strong> products <strong>WHERE</strong> vend_id <strong>NOT</strong> <strong>IN</strong> (1002,1003) <strong>ORDER BY</strong> prod_name;</td>
+<td>NOT用来否定条件</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意</strong>:</p>
 <ul>
-<li><p>周期相关问题；</p>
-</li>
-<li><p>无穷范数问题；</p>
-</li>
-<li><p>区间变化；</p>
-</li>
-<li><p>零点问题。</p>
-<a id="more"></a></li>
+<li>多使用圆括号操作符改变顺序，不然默认的计算次序AND &gt; OR，有时会不经意间产生错误。所以我们建议多多使用圆括号；</li>
+<li>IN比OR更清楚直观，执行速度更快；</li>
+<li>NOT可以用来否定IN, BETWEEN, EXISTS等，注意这只在MySQL。</li>
 </ul>
-</li>
-<li><p>广义积分</p>
+<h1 id="第八章-用通配符进行过滤"><a href="#第八章-用通配符进行过滤" class="headerlink" title="第八章 用通配符进行过滤"></a>第八章 用通配符进行过滤</h1><p>本章介绍如何使用通配符进行复杂过滤。</p>
+<h2 id="8-1-什么是通配符"><a href="#8-1-什么是通配符" class="headerlink" title="8.1 什么是通配符"></a>8.1 什么是通配符</h2><p>当我们想要获取学生中姓高的学生信息的时候，用之前的检索和过滤操作符就不适用了，因为之前的操作符都是等价匹配，而不会有学生的姓名刚好只有高一个字，而会像高一，高二等，所以我们这章就是利用高来匹配高一高二，这就是通配符或者正则表达式。</p>
+<p><strong>通配符</strong>（wildcard）是用来匹配值的一部分的特殊字符。</p>
+<p><strong>搜索模式</strong>（search pattern）由字面值，通配符或者两者组合构成的搜索条件。</p>
+<h2 id="8-2-通配符种类"><a href="#8-2-通配符种类" class="headerlink" title="8.2 通配符种类"></a>8.2 通配符种类</h2><p>通配符本身就是WHERE子句中具有特殊含义的字符，为了使用通配符，需要使用LIKE操作符。<br>这里还有一个谓词的概念，当某个操作符的返回值是TRUE,FALSE,UNKNOWN等时，操作符为谓词。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SELECT</strong> prod_id,prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>LIKE</strong> ‘jet%’;</td>
+<td>%用于任何字符出现任意次数，找出所有以jet开头的prod_name</td>
+<td>当然也可以0次</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_id,prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>LIKE</strong> ‘%anvil%’;</td>
+<td>可以使用多个通配符，anvil在中间的prod_name</td>
+<td>因为可以是0次，所以开头或结尾都行</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_id,prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>LIKE</strong> ‘s%e’;</td>
+<td>以s开头，e结尾的字符</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod<em>id,prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>LIKE</strong> ‘</em> ton anvil’;</td>
+<td>下划线匹配一个字符</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意：</strong>%不能匹配NULL值；</p>
+<h2 id="8-3-使用通配符的技巧"><a href="#8-3-使用通配符的技巧" class="headerlink" title="8.3 使用通配符的技巧"></a>8.3 使用通配符的技巧</h2><p>当我们使用通配符时，需要了解：</p>
 <ul>
-<li>广义积分敛散性的判断11条。</li>
+<li>通配符搜索花掉的时间更多；</li>
+<li>先使用其他操作符，再使用通配符效率会更高；</li>
+<li>统配符的位置不要放错。</li>
 </ul>
-</li>
-</ol>
-<p><img src="/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日 定积分综合及广义积分初步_页面_1.png" alt="2019年3月20日 定积分综合及广义积分初步_页面_1"><img src="/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日 定积分综合及广义积分初步_页面_2.png" alt="2019年3月20日 定积分综合及广义积分初步_页面_2"><img src="/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日 定积分综合及广义积分初步_页面_3.png" alt="2019年3月20日 定积分综合及广义积分初步_页面_3"><img src="/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日 定积分综合及广义积分初步_页面_4.png" alt="2019年3月20日 定积分综合及广义积分初步_页面_4"><img src="/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日 定积分综合及广义积分初步_页面_5.png" alt="2019年3月20日 定积分综合及广义积分初步_页面_5"><img src="/2019/03/20/数学分析2-定积分综合及广义积分初步/2019年3月20日 定积分综合及广义积分初步_页面_6.png" alt="2019年3月20日 定积分综合及广义积分初步_页面_6"></p>
-<p>​      </p>
-<p>​      </p>
+<h1 id="第九章-用正则表达式进行搜索"><a href="#第九章-用正则表达式进行搜索" class="headerlink" title="第九章 用正则表达式进行搜索"></a>第九章 用正则表达式进行搜索</h1><p>正则表达式是用来匹配文本的特殊的集合，比如从文本文件中提取电话号码，邮箱等。MySQL仅支持多数正则表达式的一个很小的子集。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> “1000” <strong>ORDER BY</strong> prod_name;</td>
+<td>检索prod_name包含文本1000的所有行</td>
+<td>他是在列值内进行匹配，如果能找到1000，则匹配成功，相当于操作对象为某列某行的字符串；而LIKE则是匹配整个列，而不是看列值是否包含。</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> “.000” <strong>ORDER BY</strong> prod_name;</td>
+<td>.表示匹配任意一个字符</td>
+<td>如果想要区分大小写，可以在REGEXP后加入BINARY</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> “1000\</td>
+<td>2000” <strong>ORDER BY</strong> prod_name;</td>
+<td>\</td>
+<td>表示或者的关系</td>
+<td>匹配1000或者2000</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> “[123] ton”<strong>ORDER BY</strong> prod_name;</td>
+<td>[123]表示匹配方括号内任一个字符</td>
+<td>[]和\</td>
+<td>作用类似</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> “[\^123] ton”<strong>ORDER BY</strong> prod_name;</td>
+<td>^表示不匹配123之一，起否定作用</td>
+<td>文本中有反斜杠，其实不对，应该扔掉，是因为在Markdown中，如果不加反斜杠的话，^会被解释为脚注，只是格式问题</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> “[1-5] ton”<strong>ORDER BY</strong> prod_name;</td>
+<td>[1-5]匹配1，2，3，4，5任一字符</td>
+<td>[a-z]</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> “\\.“<strong>ORDER BY</strong> prod_name;</td>
+<td>匹配特殊字符.</td>
+<td>用两个转义字符\\匹配特殊字符</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>假如相匹配 1 ton, 2 ton 或者 3 ton，则需要用”[123] ton”,或者”[1|2|3] ton”，就是不能使用 1|2|3 ton，他会默认是1或者2或者3 ton，从而检索出错。</li>
+<li>\\f匹配换页，\\n匹配换行，\\r匹配回车，\\t匹配制表，\\v匹配纵向制表</li>
+</ul>
+<h2 id="9-1-MySQL的字符类"><a href="#9-1-MySQL的字符类" class="headerlink" title="9.1 MySQL的字符类"></a>9.1 MySQL的字符类</h2><p>MySQL具有很多预定义的字符集，称为字符类：</p>
+<p><img src="/2020/04/01/MySQL过滤搜索操作/字符类.png" alt="字符类" style="zoom:67%;"></p>
+<h2 id="9-2-匹配多个实例"><a href="#9-2-匹配多个实例" class="headerlink" title="9.2 匹配多个实例"></a>9.2 匹配多个实例</h2><p>当你想要匹配一个电话号码的时候，需要匹配11个数字，但如果写出[0-9]重复11次，则显得非常冗余，有没有什么方式可以指定匹配11个数字呢，我们有如下的特殊字符。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>匹配任意长度字符，可以为0</td>
+</tr>
+<tr>
+<td>+</td>
+<td>至少一个字符</td>
+</tr>
+<tr>
+<td>？</td>
+<td>0个或1个</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>n个</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>至少n个</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>n-m个，m不超过255</td>
+</tr>
+<tr>
+<td>^</td>
+<td>文本的开始（在[]内部作否定使用）</td>
+</tr>
+<tr>
+<td>$</td>
+<td>文本的结尾</td>
+</tr>
+<tr>
+<td>[[:&lt;:]]</td>
+<td>词的开始(没有试验成功，不知使用方法)</td>
+</tr>
+<tr>
+<td>[[:&gt;:]]</td>
+<td>词的结尾</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>下面我们给出一些示例。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> ‘\\([0-9] sticks?\\)‘ <strong>ORDER BY</strong> prod_name;</td>
+<td>\\(\\)使得匹配圆括号；sticks?使得s可有可无</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> ‘[[:digit:]]{4}’ <strong>ORDER BY</strong> prod_name;</td>
+<td>[:digit:]代表任意数字，{4}代表4次</td>
+<td>[:digit:]可以想象成0-9</td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>WHERE</strong> prod_name <strong>REGEXP</strong> ‘^[0-9\\.]’ <strong>ORDER BY</strong> prod_name;</td>
+<td>以数字或者.开头的匹配</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SELECT</strong> “hello” <strong>REGEXP</strong> ‘[0-9]’;</td>
+<td>返回0</td>
+<td>在不调用数据库情况下测试正则表达式</td>
+</tr>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -505,7 +751,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/周期性，范数，区间变换，零点问题/" rel="tag"># 周期性，范数，区间变换，零点问题</a>
+            <a href="/tags/过滤，搜索/" rel="tag"># 过滤，搜索</a>
           
         </div>
       
@@ -518,8 +764,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/13/数学分析2-第七章7-5-7-6节/" rel="next" title="第七章 中值定理和定积分的应用">
-                <i class="fa fa-chevron-left"></i> 第七章 中值定理和定积分的应用
+              <a href="/2020/03/31/MySql基本检索语句/" rel="next" title="MySql基本检索语句">
+                <i class="fa fa-chevron-left"></i> MySql基本检索语句
               </a>
             
           </div>
@@ -527,10 +773,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/27/数学分析2-广义积分收敛性/" rel="prev" title="第八章 广义积分收敛性">
-                第八章 广义积分收敛性 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,8 +829,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -665,6 +916,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章-过滤数据"><span class="nav-number">1.</span> <span class="nav-text">第六章 过滤数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-数据过滤"><span class="nav-number">2.</span> <span class="nav-text">第七章 数据过滤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章-用通配符进行过滤"><span class="nav-number">3.</span> <span class="nav-text">第八章 用通配符进行过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-什么是通配符"><span class="nav-number">3.1.</span> <span class="nav-text">8.1 什么是通配符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-通配符种类"><span class="nav-number">3.2.</span> <span class="nav-text">8.2 通配符种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-使用通配符的技巧"><span class="nav-number">3.3.</span> <span class="nav-text">8.3 使用通配符的技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九章-用正则表达式进行搜索"><span class="nav-number">4.</span> <span class="nav-text">第九章 用正则表达式进行搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-MySQL的字符类"><span class="nav-number">4.1.</span> <span class="nav-text">9.1 MySQL的字符类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-匹配多个实例"><span class="nav-number">4.2.</span> <span class="nav-text">9.2 匹配多个实例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

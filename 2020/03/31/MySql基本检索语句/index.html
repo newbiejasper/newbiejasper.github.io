@@ -120,19 +120,19 @@
 
 
 
-<meta name="description" content="[TOC]">
+<meta name="description" content="[TOC] 本文主要介绍什么是SQL语句，什么是MySQL，以及他们之间的差别，如何开始用MySQL书写SQL语句操作数据库。SELECT, ORDER BY进行基本的检索和排序操作。">
 <meta name="keywords" content="MySql,检索,排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql基本检索语句">
 <meta property="og:url" content="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/index.html">
 <meta property="og:site_name" content="Mathematics-Physics-Biology-Chemistry-Programming">
-<meta property="og:description" content="[TOC]">
+<meta property="og:description" content="[TOC] 本文主要介绍什么是SQL语句，什么是MySQL，以及他们之间的差别，如何开始用MySQL书写SQL语句操作数据库。SELECT, ORDER BY进行基本的检索和排序操作。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/不同行.png">
-<meta property="og:updated_time" content="2020-04-01T03:34:20.260Z">
+<meta property="og:updated_time" content="2020-04-01T08:24:45.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql基本检索语句">
-<meta name="twitter:description" content="[TOC]">
+<meta name="twitter:description" content="[TOC] 本文主要介绍什么是SQL语句，什么是MySQL，以及他们之间的差别，如何开始用MySQL书写SQL语句操作数据库。SELECT, ORDER BY进行基本的检索和排序操作。">
 <meta name="twitter:image" content="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/不同行.png">
 
 
@@ -462,6 +462,7 @@
 
       
         <p>[TOC]</p>
+<p>本文主要介绍什么是SQL语句，什么是MySQL，以及他们之间的差别，如何开始用MySQL书写SQL语句操作数据库。SELECT, ORDER BY进行基本的检索和排序操作。</p>
 <a id="more"></a>
 <h1 id="第一章-了解SQL"><a href="#第一章-了解SQL" class="headerlink" title="第一章 了解SQL"></a>第一章 了解SQL</h1><h2 id="1-1-数据库基础"><a href="#1-1-数据库基础" class="headerlink" title="1.1 数据库基础"></a>1.1 数据库基础</h2><div class="table-container">
 <table>
@@ -581,47 +582,47 @@
 </thead>
 <tbody>
 <tr>
-<td>CREATE DATABASE learning;</td>
+<td><strong>CREATE DATABASE</strong> learning;</td>
 <td>创建数据库，名为learning</td>
 <td></td>
 </tr>
 <tr>
-<td>USE learning;</td>
+<td><strong>USE</strong> learning;</td>
 <td>选择使用数据库learning</td>
 <td>接下来表的操作都会在当前数据库下进行</td>
 </tr>
 <tr>
-<td>SHOW DATABASES;</td>
+<td><strong>SHOW DATABASES</strong>;</td>
 <td>显示数据库的信息，存储在MySQL（是数据库的名字）中</td>
 <td>默认有mysql,sys等内部使用的数据库</td>
 </tr>
 <tr>
-<td>SHOW TABLES;</td>
+<td><strong>SHOW TABLES</strong>;</td>
 <td>显示当前数据库下表的信息</td>
 <td></td>
 </tr>
 <tr>
-<td>SHOW COLUMNS FROM customers;（DESCRIBE customers）</td>
+<td><strong>SHOW COLUMNS FROM</strong> customers;（DESCRIBE customers）</td>
 <td>显示learning数据库下customers表中所有的列的信息</td>
 <td>列的信息包括名称，类型，是否允许NULL值</td>
 </tr>
 <tr>
-<td>SHOW STATUS;</td>
+<td><strong>SHOW STATUS</strong>;</td>
 <td>用于显示服务器状态信息</td>
 <td></td>
 </tr>
 <tr>
-<td>SHOW CREATE DATABASE mysql;SHOW CREATE TABLE;</td>
+<td><strong>SHOW CREATE DATABASE</strong> mysql;<strong>SHOW CREATE TABLE</strong>;</td>
 <td>显示创建特定数据库或表的信息</td>
 <td></td>
 </tr>
 <tr>
-<td>SHOW GRANTS;</td>
+<td><strong>SHOW GRANTS</strong>;</td>
 <td>显示用户的安全权限，比如可以执行的操作命令</td>
 <td></td>
 </tr>
 <tr>
-<td>SHOW ERRORS;SHOW WARNNINGS;</td>
+<td><strong>SHOW ERRORS</strong>;<strong>SHOW WARNNINGS</strong>;</td>
 <td>显示错误或警告信息</td>
 </tr>
 </tbody>
@@ -645,17 +646,17 @@
 </thead>
 <tbody>
 <tr>
-<td>SELECT prod_name From products;</td>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products;</td>
 <td>从某个表products获取列prod_name</td>
 <td>返回是未排序的数据，不同机器可能显示不同</td>
 </tr>
 <tr>
-<td>SELECT prod_id,prod_name,prod_price FROM products;</td>
+<td><strong>SELECT</strong> prod_id,prod_name,prod_price <strong>FROM</strong> products;</td>
 <td>获取三个列</td>
 <td>列名之间用逗号分开</td>
 </tr>
 <tr>
-<td>SELECT * FROM products;</td>
+<td><strong>SELECT</strong> <em> <em>*FROM</em></em> products;</td>
 <td>选取所有列</td>
 <td>*是通配符，检索不需要的列通常会降低检索和应用程序的性能</td>
 </tr>
@@ -677,17 +678,17 @@
 </thead>
 <tbody>
 <tr>
-<td>SELECT DISTINCT vend_id FROM products;</td>
+<td><strong>SELECT DISTINCT</strong> vend_id <strong>FROM</strong> products;</td>
 <td>返回不同值的行</td>
 <td>DISTINCT放在列名的前面，他应用所有的列。比如指定姓名和学校，则gao,peking 和 shang,peking将会被显示</td>
 </tr>
 <tr>
-<td>SELECT prod_name FROM products LIMIT 5；</td>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>LIMIT</strong> 5；</td>
 <td>返回不超过5行</td>
 <td>之所以写成不超过是因为如果没有足够的行，所只返回仅有的行</td>
 </tr>
 <tr>
-<td>SELECT prod_name FROM products LIMIT 2, 5（等价于 LIMIT 5 OFFSET 2）；</td>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>LIMIT</strong> 2, 5（等价于 LIMIT 5 OFFSET 2）；</td>
 <td>从第二行开始，返回最多5行检索数据</td>
 <td>索引从0开始，即第一行实际上是行0</td>
 </tr>
@@ -707,22 +708,22 @@
 </thead>
 <tbody>
 <tr>
-<td>SELECT prod_name FROM products ORDER BY prod_name;</td>
+<td><strong>SELECT</strong> prod_name <strong>FROM</strong> products <strong>ORDER BY</strong> prod_name;</td>
 <td>按照prod_name排序</td>
 <td>可以按照未被检索的列进行排序，例如ORDER BY prod_price.</td>
 </tr>
 <tr>
-<td>SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price,prod_name;</td>
+<td><strong>SELECT</strong> prod_id,prod_price,prod_name <strong>FROM</strong> products <strong>ORDER BY</strong> prod_price,prod_name;</td>
 <td>按照多个列进行排序</td>
 <td>先按照prod_price排序，再按prod_name排序</td>
 </tr>
 <tr>
-<td>SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price DESC;</td>
+<td><strong>SELECT</strong> prod_id,prod_price,prod_name <strong>FROM</strong> products <strong>ORDER BY</strong> prod_price <strong>DESC</strong>;</td>
 <td>按照降序排序</td>
 <td>Descending</td>
 </tr>
 <tr>
-<td>SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price DESC, prod_name DESC;</td>
+<td><strong>SELECT</strong> prod_id,prod_price,prod_name <strong>FROM</strong> products <strong>ORDER BY</strong> prod_price <strong>DESC</strong>, prod_name <strong>DESC</strong>;</td>
 <td>按照多个列降序排列，必须为每个列指定，否则未指定的列依然是升序</td>
 </tr>
 </tbody>
@@ -771,6 +772,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/01/MySQL过滤搜索操作/" rel="prev" title="MySQL过滤搜索操作">
+                MySQL过滤搜索操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -854,7 +859,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -876,7 +881,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
