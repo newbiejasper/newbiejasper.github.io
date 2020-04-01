@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySql基本检索语句]]></title>
+    <url>%2F2020%2F03%2F31%2FMySql%E5%9F%BA%E6%9C%AC%E6%A3%80%E7%B4%A2%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[第一章 了解SQL1.1 数据库基础 名称（英文名） 定义 备注 数据库（database） 一个以某种有组织的方式存储的数据集合 可以把它想象成一个文件柜 数据库管理系统（DBMS-Database Management system） 也可以称之为数据库软件，它替我们访问数据库。 例如mysql,oracle 表（table） 某种特定类型数据的结构化清单 就像excel中的表一样，可以用来存储学生名单等。同一数据库下不能有相同名称的表 模式（schema） 关于数据库和表的布局及特性的信息 定义了数据在表中如何存储，存什么样的数据，列的分解，命名信息 列（column） 表中的一个字段 可以认为是一个变量的取值，如学生姓名 行（row） 表中的一个记录 某一个学生所有的信息，姓名，学号，地址，成绩的一条记录 数据类型（datatype） 所容许的数据的类型 数值型，日期，文本，注释等，合适的数据类型可以用来正确排序，优化磁盘（节省存储空间）。 主键（primary key） 表中的每一行都应该有可以唯一标识自己的一列（或一组列） 比如用学生的学号就不会重复，但是如果用学生的性别，那很多人都会重复，这样的列是不可以作为主键的 注意：表中任何列都可以作为主键，只要它满足以下条件： 任意两行都不具有相同的主键值； 每个行都必须具有一个主键值（主键列不允许NULL值）。 1.2 什么是SQLSQL（发音为S-Q-L或sequel）是结构化查询语言（Structured Query Language）的缩写，是用来与数据库通信的语言。 SQL由很少的词组成，是为了让从数据库中读写数据变得容易； 几乎所有的DBMS都支持SQL，所以了解SQL可以和任何数据库打交道； 1.3 开始之前开始学习数据库之前，你应当准备好一下内容： 安装mysql 根据脚本创建必要的数据库和表，从而可以试验每个样例。 第二章 MySQL简介2.1 什么是MySQLMySQL是一种特殊的数据库管理软件（DBMS），它开源免费，简单易上手，性能很好，值得信赖。 名称 定义 举例 特点 一类DBMS 基于共享文件系统 Microsoft Access和FileMaker 用于桌面用途，通常不用于高端或更关键的应用 另一类DBMS 基于客户机-服务器 MySQL,Oracle,Microsoft SQL Server 服务器部分是负责所有数据访问和处理的一个软件，运行在称为数据库服务器的计算机上；而数据添加，修改，删除等命令的提交请求都是有客户机软件下达的。然后由服务器处理后把结果返回给客户机 MySQL客户机选择 命令行；MySQL Administrator; MySQL Query Browser 第三章 使用MySQL为了使用MySQL, 需要以下信心： 主机名，本地为localhost 端口，默认3306 用户名 用户密码 口令 用途 备注 CREATE DATABASE learning; 创建数据库，名为learning USE learning; 选择使用数据库learning 接下来表的操作都会在当前数据库下进行 SHOW DATABASES; 显示数据库的信息，存储在MySQL（是数据库的名字）中 默认有mysql,sys等内部使用的数据库 SHOW TABLES; 显示当前数据库下表的信息 SHOW COLUMNS FROM customers;（DESCRIBE customers） 显示learning数据库下customers表中所有的列的信息 列的信息包括名称，类型，是否允许NULL值 SHOW STATUS; 用于显示服务器状态信息 SHOW CREATE DATABASE mysql;SHOW CREATE TABLE; 显示创建特定数据库或表的信息 SHOW GRANTS; 显示用户的安全权限，比如可以执行的操作命令 SHOW ERRORS;SHOW WARNNINGS; 显示错误或警告信息 自动增量：MySQL可以自动为每个行分配下一个可用编号，不用手动添加； 如果忘记了命令，可以使用help语句，比如help show可以查看可用的show命令； SQL语句是不区分大小写的，之所以把关键字写成大写字母，主要是为了方便阅读和调试； SQL语句以分号结尾； SQL会忽略所有的空格，所以分行书写命令会更加容易阅读。 第四章 检索数据通常，数据库很大，如果我们直接把数据库中整个的表获取到我们本地计算机，则很有可能会因为内存不足而失败。所以，往往我们只需要从数据库中提取部分需要的信息即可，而SELECT语句就是起到了这个作用。 SELECT语句的基本格式就是从哪里检索什么东西？ 4.1 获取列 口令 用途 备注 SELECT prod_name From products; 从某个表products获取列prod_name 返回是未排序的数据，不同机器可能显示不同 SELECT prod_id,prod_name,prod_price FROM products; 获取三个列 列名之间用逗号分开 SELECT * FROM products; 选取所有列 *是通配符，检索不需要的列通常会降低检索和应用程序的性能 我们也可以用完全限定的表明，在之前我们只是指明了列名，也可以使用数据库+表名或者表+列名来进行限定。 1SELECT products.prod_name FROM learning.products； 4.2 获取行如下所示，当我们选取某个列时，所有的行都会被显示出来，这样就有可能会出现大量的重复值。例如我们想看看有哪些供应商，则我们不需要看到1000个写着1001的行，这样就不能看到直观的结果。 口令 用途 备注 SELECT DISTINCT vend_id FROM products; 返回不同值的行 DISTINCT放在列名的前面，他应用所有的列。比如指定姓名和学校，则gao,peking 和 shang,peking将会被显示 SELECT prod_name FROM products LIMIT 5； 返回不超过5行 之所以写成不超过是因为如果没有足够的行，所只返回仅有的行 SELECT prod_name FROM products LIMIT 2, 5（等价于 LIMIT 5 OFFSET 2）； 从第二行开始，返回最多5行检索数据 索引从0开始，即第一行实际上是行0 第五章 排序检索数据当检索出来数据的时候，我们总是期望按照某种方式进行排序，比如学号从小到大，成绩由高到低。 ORDER BY子句默认按照升序排序。 口令 用途 备注 SELECT prod_name FROM products ORDER BY prod_name; 按照prod_name排序 可以按照未被检索的列进行排序，例如ORDER BY prod_price. SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price,prod_name; 按照多个列进行排序 先按照prod_price排序，再按prod_name排序 SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price DESC; 按照降序排序 Descending SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price DESC, prod_name DESC; 按照多个列降序排列，必须为每个列指定，否则未指定的列依然是升序]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySql</tag>
+        <tag>检索</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第十七章 含参变量积分]]></title>
     <url>%2F2019%2F12%2F26%2F%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E5%90%AB%E5%8F%82%E5%8F%98%E9%87%8F%E7%A7%AF%E5%88%86%2F</url>
     <content type="text"><![CDATA[含参变量积分 换序的条件； 一致收敛性判断； 三种常见的求含参变量积分的方式。]]></content>
@@ -84,19 +97,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[第十四章 多元微分学第一部分]]></title>
-    <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%2F</url>
-    <content type="text"><![CDATA[多元微分学 方向导数，偏导数，梯度，可微的定义； 可微与偏导数存在，连续之间的关系； 凸域中的问题；]]></content>
-      <tags>
-        <tag>偏导数，方向导数，梯度，全微分</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[第十四章 多元微分学第二部分]]></title>
     <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%2F</url>
     <content type="text"><![CDATA[多元微分学 高阶偏导数； 偏导数换序问题。]]></content>
       <tags>
         <tag>高阶导数，偏导数换序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[第十四章 多元微分学第一部分]]></title>
+    <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%2F</url>
+    <content type="text"><![CDATA[多元微分学 方向导数，偏导数，梯度，可微的定义； 可微与偏导数存在，连续之间的关系； 凸域中的问题；]]></content>
+      <tags>
+        <tag>偏导数，方向导数，梯度，全微分</tag>
       </tags>
   </entry>
   <entry>

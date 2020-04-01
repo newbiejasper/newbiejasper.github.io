@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySql,检索,排序,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一章 了解SQL1.1 数据库基础    名称（英文名） 定义 备注     数据库（database） 一个以某种有组织的方式存储的数据集合 可以把它想象成一个文件柜   数据库管理系统（DBMS-Database Management system） 也可以称之为数据库软件，它替我们访问数据库。 例如mysql,oracle   表（table） 某种特定类型数据的结构化清单 就像excel">
+<meta name="keywords" content="MySql,检索,排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql基本检索语句">
+<meta property="og:url" content="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/index.html">
+<meta property="og:site_name" content="Mathematics-Physics-Biology-Chemistry-Programming">
+<meta property="og:description" content="第一章 了解SQL1.1 数据库基础    名称（英文名） 定义 备注     数据库（database） 一个以某种有组织的方式存储的数据集合 可以把它想象成一个文件柜   数据库管理系统（DBMS-Database Management system） 也可以称之为数据库软件，它替我们访问数据库。 例如mysql,oracle   表（table） 某种特定类型数据的结构化清单 就像excel">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/不同行.png">
+<meta property="og:updated_time" content="2020-04-01T03:28:29.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySql基本检索语句">
+<meta name="twitter:description" content="第一章 了解SQL1.1 数据库基础    名称（英文名） 定义 备注     数据库（database） 一个以某种有组织的方式存储的数据集合 可以把它想象成一个文件柜   数据库管理系统（DBMS-Database Management system） 也可以称之为数据库软件，它替我们访问数据库。 例如mysql,oracle   表（table） 某种特定类型数据的结构化清单 就像excel">
+<meta name="twitter:image" content="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/不同行.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/">
+
+
+
+
+
+  <title>MySql基本检索语句 | Mathematics-Physics-Biology-Chemistry-Programming</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mathematics-Physics-Biology-Chemistry-Programming</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jasper's Notes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-留言板">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br>
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newbiejasper.github.io/2020/03/31/MySql基本检索语句/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Newbiejasper">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/ca.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mathematics-Physics-Biology-Chemistry-Programming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySql基本检索语句</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-31T22:06:35+08:00">
+                2020-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一章-了解SQL"><a href="#第一章-了解SQL" class="headerlink" title="第一章 了解SQL"></a>第一章 了解SQL</h1><h2 id="1-1-数据库基础"><a href="#1-1-数据库基础" class="headerlink" title="1.1 数据库基础"></a>1.1 数据库基础</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称（英文名）</th>
+<th>定义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据库（database）</td>
+<td>一个以某种有组织的方式存储的数据集合</td>
+<td>可以把它想象成一个文件柜</td>
+</tr>
+<tr>
+<td>数据库管理系统（DBMS-Database Management system）</td>
+<td>也可以称之为数据库软件，它替我们访问数据库。</td>
+<td>例如mysql,oracle</td>
+</tr>
+<tr>
+<td>表（table）</td>
+<td>某种特定类型数据的结构化清单</td>
+<td>就像excel中的表一样，可以用来存储学生名单等。同一数据库下不能有相同名称的表</td>
+</tr>
+<tr>
+<td>模式（schema）</td>
+<td>关于数据库和表的布局及特性的信息</td>
+<td>定义了数据在表中如何存储，存什么样的数据，列的分解，命名信息</td>
+</tr>
+<tr>
+<td>列（column）</td>
+<td>表中的一个字段</td>
+<td>可以认为是一个变量的取值，如学生姓名</td>
+</tr>
+<tr>
+<td>行（row）</td>
+<td>表中的一个记录</td>
+<td>某一个学生所有的信息，姓名，学号，地址，成绩的一条记录</td>
+</tr>
+<tr>
+<td>数据类型（datatype）</td>
+<td>所容许的数据的类型</td>
+<td>数值型，日期，文本，注释等，合适的数据类型可以用来正确排序，优化磁盘（节省存储空间）。</td>
+</tr>
+<tr>
+<td>主键（primary key）</td>
+<td>表中的每一行都应该有可以唯一标识自己的一列（或一组列）</td>
+<td>比如用学生的学号就不会重复，但是如果用学生的性别，那很多人都会重复，这样的列是不可以作为主键的</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注意：表中任何列都可以作为主键，只要它满足以下条件：</p>
+<ul>
+<li>任意两行都不具有相同的主键值；</li>
+<li>每个行都必须具有一个主键值（主键列不允许NULL值）。</li>
+</ul>
+<h2 id="1-2-什么是SQL"><a href="#1-2-什么是SQL" class="headerlink" title="1.2 什么是SQL"></a>1.2 什么是SQL</h2><p>SQL（发音为S-Q-L或sequel）是结构化查询语言（Structured Query Language）的缩写，是用来与数据库通信的语言。</p>
+<ul>
+<li>SQL由很少的词组成，是为了让从数据库中读写数据变得容易；</li>
+<li>几乎所有的DBMS都支持SQL，所以了解SQL可以和任何数据库打交道；</li>
+</ul>
+<h2 id="1-3-开始之前"><a href="#1-3-开始之前" class="headerlink" title="1.3 开始之前"></a>1.3 开始之前</h2><p>开始学习数据库之前，你应当准备好一下内容：</p>
+<ul>
+<li>安装mysql</li>
+<li>根据脚本创建必要的数据库和表，从而可以试验每个样例。</li>
+</ul>
+<h1 id="第二章-MySQL简介"><a href="#第二章-MySQL简介" class="headerlink" title="第二章 MySQL简介"></a>第二章 MySQL简介</h1><h2 id="2-1-什么是MySQL"><a href="#2-1-什么是MySQL" class="headerlink" title="2.1 什么是MySQL"></a>2.1 什么是MySQL</h2><p>MySQL是一种特殊的数据库管理软件（DBMS），它开源免费，简单易上手，性能很好，值得信赖。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>定义</th>
+<th>举例</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一类DBMS</td>
+<td>基于共享文件系统</td>
+<td>Microsoft Access和FileMaker</td>
+<td>用于桌面用途，通常不用于高端或更关键的应用</td>
+</tr>
+<tr>
+<td>另一类DBMS</td>
+<td>基于客户机-服务器</td>
+<td>MySQL,Oracle,Microsoft SQL Server</td>
+<td><strong>服务器部分是负责所有数据访问和处理的一个软件，运行在称为数据库服务器的计算机上；而数据添加，修改，删除等命令的提交请求都是有客户机软件下达的。然后由服务器处理后把结果返回给客户机</strong></td>
+</tr>
+<tr>
+<td>MySQL客户机选择</td>
+<td></td>
+<td>命令行；MySQL Administrator; MySQL Query Browser</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="第三章-使用MySQL"><a href="#第三章-使用MySQL" class="headerlink" title="第三章 使用MySQL"></a>第三章 使用MySQL</h1><p>为了使用MySQL, 需要以下信心：</p>
+<ul>
+<li>主机名，本地为localhost</li>
+<li>端口，默认3306</li>
+<li>用户名</li>
+<li>用户密码</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREATE DATABASE learning;</td>
+<td>创建数据库，名为learning</td>
+<td></td>
+</tr>
+<tr>
+<td>USE learning;</td>
+<td>选择使用数据库learning</td>
+<td>接下来表的操作都会在当前数据库下进行</td>
+</tr>
+<tr>
+<td>SHOW DATABASES;</td>
+<td>显示数据库的信息，存储在MySQL（是数据库的名字）中</td>
+<td>默认有mysql,sys等内部使用的数据库</td>
+</tr>
+<tr>
+<td>SHOW TABLES;</td>
+<td>显示当前数据库下表的信息</td>
+<td></td>
+</tr>
+<tr>
+<td>SHOW COLUMNS FROM customers;（DESCRIBE customers）</td>
+<td>显示learning数据库下customers表中所有的列的信息</td>
+<td>列的信息包括名称，类型，是否允许NULL值</td>
+</tr>
+<tr>
+<td>SHOW STATUS;</td>
+<td>用于显示服务器状态信息</td>
+<td></td>
+</tr>
+<tr>
+<td>SHOW CREATE DATABASE mysql;SHOW CREATE TABLE;</td>
+<td>显示创建特定数据库或表的信息</td>
+<td></td>
+</tr>
+<tr>
+<td>SHOW GRANTS;</td>
+<td>显示用户的安全权限，比如可以执行的操作命令</td>
+<td></td>
+</tr>
+<tr>
+<td>SHOW ERRORS;SHOW WARNNINGS;</td>
+<td>显示错误或警告信息</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>自动增量：MySQL可以自动为每个行分配下一个可用编号，不用手动添加；</p>
+<p>如果忘记了命令，可以使用<strong>help</strong>语句，比如help show可以查看可用的show命令；</p>
+<p>SQL语句是不区分大小写的，之所以把关键字写成大写字母，主要是为了方便阅读和调试；</p>
+<p>SQL语句以分号结尾；</p>
+<p>SQL会忽略所有的空格，所以分行书写命令会更加容易阅读。</p>
+<h1 id="第四章-检索数据"><a href="#第四章-检索数据" class="headerlink" title="第四章 检索数据"></a>第四章 检索数据</h1><p>通常，数据库很大，如果我们直接把数据库中整个的表获取到我们本地计算机，则很有可能会因为内存不足而失败。所以，往往我们只需要从数据库中提取部分需要的信息即可，而SELECT语句就是起到了这个作用。</p>
+<p>SELECT语句的基本格式就是从哪里检索什么东西？</p>
+<h2 id="4-1-获取列"><a href="#4-1-获取列" class="headerlink" title="4.1 获取列"></a>4.1 获取列</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT prod_name From products;</td>
+<td>从某个表products获取列prod_name</td>
+<td>返回是未排序的数据，不同机器可能显示不同</td>
+</tr>
+<tr>
+<td>SELECT prod_id,prod_name,prod_price FROM products;</td>
+<td>获取三个列</td>
+<td>列名之间用逗号分开</td>
+</tr>
+<tr>
+<td>SELECT * FROM products;</td>
+<td>选取所有列</td>
+<td>*是通配符，检索不需要的列通常会降低检索和应用程序的性能</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我们也可以用完全限定的表明，在之前我们只是指明了列名，也可以使用数据库+表名或者表+列名来进行限定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT products.prod_name FROM learning.products；</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-获取行"><a href="#4-2-获取行" class="headerlink" title="4.2 获取行"></a>4.2 获取行</h2><p>如下所示，当我们选取某个列时，所有的行都会被显示出来，这样就有可能会出现大量的重复值。例如我们想看看有哪些供应商，则我们不需要看到1000个写着1001的行，这样就不能看到直观的结果。</p>
+<p><img src="/2020/03/31/MySql基本检索语句/不同行.png" alt="不同行" style="zoom:40%;"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT DISTINCT vend_id FROM products;</td>
+<td>返回不同值的行</td>
+<td>DISTINCT放在列名的前面，他应用所有的列。比如指定姓名和学校，则gao,peking 和 shang,peking将会被显示</td>
+</tr>
+<tr>
+<td>SELECT prod_name FROM products LIMIT 5；</td>
+<td>返回不超过5行</td>
+<td>之所以写成不超过是因为如果没有足够的行，所只返回仅有的行</td>
+</tr>
+<tr>
+<td>SELECT prod_name FROM products LIMIT 2, 5（等价于 LIMIT 5 OFFSET 2）；</td>
+<td>从第二行开始，返回最多5行检索数据</td>
+<td>索引从0开始，即第一行实际上是行0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="第五章-排序检索数据"><a href="#第五章-排序检索数据" class="headerlink" title="第五章 排序检索数据"></a>第五章 排序检索数据</h1><p>当检索出来数据的时候，我们总是期望按照某种方式进行排序，比如学号从小到大，成绩由高到低。</p>
+<p>ORDER BY子句默认按照升序排序。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>口令</th>
+<th>用途</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT prod_name FROM products ORDER BY prod_name;</td>
+<td>按照prod_name排序</td>
+<td>可以按照未被检索的列进行排序，例如ORDER BY prod_price.</td>
+</tr>
+<tr>
+<td>SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price,prod_name;</td>
+<td>按照多个列进行排序</td>
+<td>先按照prod_price排序，再按prod_name排序</td>
+</tr>
+<tr>
+<td>SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price DESC;</td>
+<td>按照降序排序</td>
+<td>Descending</td>
+</tr>
+<tr>
+<td>SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price DESC, prod_name DESC;</td>
+<td>按照多个列降序排列，必须为每个列指定，否则未指定的列依然是升序</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySql/" rel="tag"># MySql</a>
+          
+            <a href="/tags/检索/" rel="tag"># 检索</a>
+          
+            <a href="/tags/排序/" rel="tag"># 排序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/26/第十七章-含参变量积分/" rel="next" title="第十七章 含参变量积分">
+                <i class="fa fa-chevron-left"></i> 第十七章 含参变量积分
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjkwMS8xOTQ0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/ca.png" alt="Newbiejasper">
+            
+              <p class="site-author-name" itemprop="name">Newbiejasper</p>
+              <p class="site-description motion-element" itemprop="description">数学，物理，化学，生物及编程</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/newbiejasper" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:gaojx1012@pku.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-了解SQL"><span class="nav-number">1.</span> <span class="nav-text">第一章 了解SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-数据库基础"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 数据库基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-什么是SQL"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 什么是SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-开始之前"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 开始之前</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-MySQL简介"><span class="nav-number">2.</span> <span class="nav-text">第二章 MySQL简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-什么是MySQL"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 什么是MySQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-使用MySQL"><span class="nav-number">3.</span> <span class="nav-text">第三章 使用MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-检索数据"><span class="nav-number">4.</span> <span class="nav-text">第四章 检索数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-获取列"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 获取列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-获取行"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 获取行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-排序检索数据"><span class="nav-number">5.</span> <span class="nav-text">第五章 排序检索数据</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Newbiejasper</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
