@@ -17,6 +17,9 @@
     <title><![CDATA[第十七章 含参变量积分]]></title>
     <url>%2F2019%2F12%2F26%2F%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E5%90%AB%E5%8F%82%E5%8F%98%E9%87%8F%E7%A7%AF%E5%88%86%2F</url>
     <content type="text"><![CDATA[含参变量积分 换序的条件； 一致收敛性判断； 三种常见的求含参变量积分的方式。]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>换序</tag>
         <tag>含参变量积分</tag>
@@ -26,6 +29,9 @@
     <title><![CDATA[第十六章 曲线和曲面积分]]></title>
     <url>%2F2019%2F12%2F12%2F%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E6%9B%B2%E7%BA%BF%E5%92%8C%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86%2F</url>
     <content type="text"><![CDATA[曲线曲面积分 曲线，曲面的参数方程； 新坐标系的建立 积分区域的对称性； gauss-green公式，分部积分公式与平均值公式。]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>曲线积分</tag>
         <tag>曲面积分</tag>
@@ -36,6 +42,9 @@
     <title><![CDATA[第十五章 重积分和反常积分]]></title>
     <url>%2F2019%2F11%2F28%2F%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E9%87%8D%E7%A7%AF%E5%88%86%E5%92%8C%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86%2F</url>
     <content type="text"><![CDATA[重积分与反常积分 复合函数可积性的证明； 反常积分收敛的判别法则； 常用的证明收敛与发散的方法； 掌握常用的积分区域与参数方程写法。]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>反常积分</tag>
         <tag>复合函数可积性</tag>
@@ -54,6 +63,9 @@
     <title><![CDATA[期中考试-伍]]></title>
     <url>%2F2019%2F11%2F17%2F%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95-%E4%BC%8D%2F</url>
     <content type="text"><![CDATA[期中试卷]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>2019</tag>
         <tag>wu</tag>
@@ -64,6 +76,9 @@
     <title><![CDATA[第十五章 重积分]]></title>
     <url>%2F2019%2F11%2F15%2F%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E9%87%8D%E7%A7%AF%E5%88%86%2F</url>
     <content type="text"><![CDATA[重积分 重积分的定义； 可积性条件； 计算-化成累次积分，变量替换。]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>可积性</tag>
         <tag>重积分定义</tag>
@@ -74,6 +89,9 @@
     <title><![CDATA[第二次作业解答]]></title>
     <url>%2F2019%2F10%2F31%2F%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A%E8%A7%A3%E7%AD%94-md%2F</url>
     <content type="text"><![CDATA[感谢何波澔同学的作业]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>第二次作业</tag>
       </tags>
@@ -82,6 +100,9 @@
     <title><![CDATA[第十四章5-6节部分.md]]></title>
     <url>%2F2019%2F10%2F31%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A05-6%E8%8A%82%E9%83%A8%E5%88%86-md%2F</url>
     <content type="text"><![CDATA[隐函数，极值与几何应用 隐函数存在定理，反函数存在定理； 极值与条件极值； 几何应用；]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>隐函数</tag>
         <tag>极值</tag>
@@ -92,6 +113,9 @@
     <title><![CDATA[往年期中考试试题]]></title>
     <url>%2F2019%2F10%2F18%2F%E5%BE%80%E5%B9%B4%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98%2F</url>
     <content type="text"><![CDATA[期中考试 开集，闭集与连续性的相关问题； 单变量连续与全变量连续； 凸函数的定义与性质； 极值问题； 隐函数存在定理。]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>往年题</tag>
       </tags>
@@ -100,6 +124,9 @@
     <title><![CDATA[第十四章 多元微分学第二部分]]></title>
     <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%2F</url>
     <content type="text"><![CDATA[多元微分学 高阶偏导数； 偏导数换序问题。]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>高阶导数，偏导数换序</tag>
       </tags>
@@ -108,6 +135,9 @@
     <title><![CDATA[第十四章 多元微分学第一部分]]></title>
     <url>%2F2019%2F10%2F18%2F%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A02-3-4%E8%8A%82%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%2F</url>
     <content type="text"><![CDATA[多元微分学 方向导数，偏导数，梯度，可微的定义； 可微与偏导数存在，连续之间的关系； 凸域中的问题；]]></content>
+      <categories>
+        <category>数学分析3</category>
+      </categories>
       <tags>
         <tag>偏导数，方向导数，梯度，全微分</tag>
       </tags>
@@ -130,11 +160,17 @@
     <title><![CDATA[总复习]]></title>
     <url>%2F2019%2F06%2F09%2F%E6%80%BB%E5%A4%8D%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[总复习 查漏补缺 裴礼文习题集部分题目]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[第十二章 Fourier级数展开]]></title>
     <url>%2F2019%2F05%2F29%2FFourier%E7%BA%A7%E6%95%B0%E5%B1%95%E5%BC%80%2F</url>
     <content type="text"><![CDATA[Fourier级数 展开的意义，系数在有限维空间中的对应关系 误差标准—-平方平均误差 收敛性判定的依据 parseval等式，Bessel不等式 一致收敛性]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
       <tags>
         <tag>Fourier级数</tag>
       </tags>
@@ -143,6 +179,9 @@
     <title><![CDATA[第十一章 连续函数的多项式逼近]]></title>
     <url>%2F2019%2F05%2F23%2F%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E7%9A%84%E5%A4%9A%E9%A1%B9%E5%BC%8F%E9%80%BC%E8%BF%91%2F</url>
     <content type="text"><![CDATA[连续函数的多项式逼近 visser定理 概率论的证明方式——二项分布 光滑化的想法]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
       <tags>
         <tag>逼近</tag>
       </tags>
@@ -151,6 +190,9 @@
     <title><![CDATA[第十一章 幂级数展开]]></title>
     <url>%2F2019%2F05%2F23%2F%E5%B9%82%E7%BA%A7%E6%95%B0%E5%B1%95%E5%BC%80%2F</url>
     <content type="text"><![CDATA[幂级数展开 导数容易展开的情况，例arcsin,arctan 基本函数组合而成的形式，例e^x, ln(1+x), sin(x), cos(x), (1+x)^a 乘积形式的——(ln(1-x))^2 可以参考裴礼文习题集对这个问题的总结！]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
       <tags>
         <tag>Taylor展开式</tag>
       </tags>
@@ -159,6 +201,9 @@
     <title><![CDATA[第十一章 幂级数收敛半径与收敛域]]></title>
     <url>%2F2019%2F05%2F15%2F%E5%B9%82%E7%BA%A7%E6%95%B0%E6%94%B6%E6%95%9B%E5%8D%8A%E5%BE%84%E4%B8%8E%E6%94%B6%E6%95%9B%E5%9F%9F%2F</url>
     <content type="text"><![CDATA[幂级数 收敛半径和收敛域 和函数 $sin(n!\pi x)$的收敛域的特殊情况]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
       <tags>
         <tag>幂级数，收敛域</tag>
       </tags>
@@ -167,6 +212,9 @@
     <title><![CDATA[函数序列与函数项级数的换序问题]]></title>
     <url>%2F2019%2F05%2F08%2F%E5%87%BD%E6%95%B0%E5%BA%8F%E5%88%97%E4%B8%8E%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0%E7%9A%84%E6%8D%A2%E5%BA%8F%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[换序问题 连续性换序 积分换序 求导换序]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
       <tags>
         <tag>换序</tag>
       </tags>
@@ -175,6 +223,9 @@
     <title><![CDATA[数学分析2 函数项级数的一致收敛性]]></title>
     <url>%2F2019%2F04%2F24%2F%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%902-%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0%E7%9A%84%E4%B8%80%E8%87%B4%E6%94%B6%E6%95%9B%E6%80%A7%2F</url>
     <content type="text"><![CDATA[函数序列的一致收敛性—最值判别法 函数项级数的一致收敛性——魏尔斯特拉斯定理，柯西收敛准则等]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
       <tags>
         <tag>函数项级数，一致收敛</tag>
       </tags>
@@ -183,6 +234,9 @@
     <title><![CDATA[数学分析2 期中试题解析]]></title>
     <url>%2F2019%2F04%2F17%2F%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%902-%E6%9C%9F%E4%B8%AD%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90%2F</url>
     <content type="text"><![CDATA[本次考试中： 第1题 利用导函数和其他函数的差异：介值定理 第2题 见数分讲义2017年 第3题 见数分讲义2019年3月13日 第4题 见数分讲义2019年3月13日 第5题 见数分讲义2019年4月3日 第6题 见数分讲义2019年4月10日 第7题 见数分讲义2019年3月27日 第8题 见数分讲义2019年4月10日 第9题 方法同讲义2019年4月10日 第10题 课本无穷乘积]]></content>
+      <categories>
+        <category>数学分析2</category>
+      </categories>
       <tags>
         <tag>数学分析2，期中</tag>
       </tags>
