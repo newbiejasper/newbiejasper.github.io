@@ -120,18 +120,18 @@
 
 
 
-<meta name="description" content="[TOC] 本部分主要涉及到MySQL进行简单的计算。 第十章 创建计算字段为什么要创建计算字段呢？通常来讲，存储在数据库中的数据往往都不是应用程序所需要的，比如说我们想要获得每个月的收益值，那么就不需要从数据库中获取一个月当中每一天的收益，而只需要对当月数据进行求和即可，这样就可以最大程度地减轻访问数据库的压力。 计算字段是运行时在SELECT语句内创建的。 字段：基本与列的意思相同，经常互换使">
+<meta name="description" content="[TOC] 本部分主要涉及到MySQL进行简单的四则计算，处理数值，文本和日期与时间的各种函数。常见的聚集函数求均值，最值等，最后是分组处理。">
 <meta name="keywords" content="计算,汇总,分组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL数据分析">
 <meta property="og:url" content="https://newbiejasper.github.io/2020/04/03/MySQL数据分析/index.html">
 <meta property="og:site_name" content="Mathematics-Physics-Biology-Chemistry-Programming">
-<meta property="og:description" content="[TOC] 本部分主要涉及到MySQL进行简单的计算。 第十章 创建计算字段为什么要创建计算字段呢？通常来讲，存储在数据库中的数据往往都不是应用程序所需要的，比如说我们想要获得每个月的收益值，那么就不需要从数据库中获取一个月当中每一天的收益，而只需要对当月数据进行求和即可，这样就可以最大程度地减轻访问数据库的压力。 计算字段是运行时在SELECT语句内创建的。 字段：基本与列的意思相同，经常互换使">
+<meta property="og:description" content="[TOC] 本部分主要涉及到MySQL进行简单的四则计算，处理数值，文本和日期与时间的各种函数。常见的聚集函数求均值，最值等，最后是分组处理。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-04T03:29:00.904Z">
+<meta property="og:updated_time" content="2020-04-04T09:41:59.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据分析">
-<meta name="twitter:description" content="[TOC] 本部分主要涉及到MySQL进行简单的计算。 第十章 创建计算字段为什么要创建计算字段呢？通常来讲，存储在数据库中的数据往往都不是应用程序所需要的，比如说我们想要获得每个月的收益值，那么就不需要从数据库中获取一个月当中每一天的收益，而只需要对当月数据进行求和即可，这样就可以最大程度地减轻访问数据库的压力。 计算字段是运行时在SELECT语句内创建的。 字段：基本与列的意思相同，经常互换使">
+<meta name="twitter:description" content="[TOC] 本部分主要涉及到MySQL进行简单的四则计算，处理数值，文本和日期与时间的各种函数。常见的聚集函数求均值，最值等，最后是分组处理。">
 
 
 
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.7k
+                  3.8k
                 </span>
               
 
@@ -460,7 +460,8 @@
 
       
         <p>[TOC]</p>
-<p>本部分主要涉及到MySQL进行简单的计算。</p>
+<p>本部分主要涉及到MySQL进行简单的四则计算，处理数值，文本和日期与时间的各种函数。常见的聚集函数求均值，最值等，最后是分组处理。</p>
+<a id="more"></a>
 <h1 id="第十章-创建计算字段"><a href="#第十章-创建计算字段" class="headerlink" title="第十章 创建计算字段"></a>第十章 创建计算字段</h1><p>为什么要创建计算字段呢？通常来讲，存储在数据库中的数据往往都不是应用程序所需要的，比如说我们想要获得每个月的收益值，那么就不需要从数据库中获取一个月当中每一天的收益，而只需要对当月数据进行求和即可，这样就可以最大程度地减轻访问数据库的压力。</p>
 <p>计算字段是运行时在SELECT语句内创建的。</p>
 <p><strong>字段：</strong>基本与列的意思相同，经常互换使用，不过数据库一般称为列，而属于字段通常用在计算字段的连接上。</p>
