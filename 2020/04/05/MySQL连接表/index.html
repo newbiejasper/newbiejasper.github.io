@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="子查询,连接表,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[TOC]">
+<meta name="keywords" content="子查询,连接表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL连接表">
+<meta property="og:url" content="https://newbiejasper.github.io/2020/04/05/MySQL连接表/index.html">
+<meta property="og:site_name" content="Mathematics-Physics-Biology-Chemistry-Programming">
+<meta property="og:description" content="[TOC]">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-07T16:31:30.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL连接表">
+<meta name="twitter:description" content="[TOC]">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://newbiejasper.github.io/2020/04/05/MySQL连接表/">
+
+
+
+
+
+  <title>MySQL连接表 | Mathematics-Physics-Biology-Chemistry-Programming</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mathematics-Physics-Biology-Chemistry-Programming</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jasper's Notes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-留言板">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-newspaper-o"></i> <br>
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newbiejasper.github.io/2020/04/05/MySQL连接表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Newbiejasper">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/ca.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mathematics-Physics-Biology-Chemistry-Programming">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL连接表</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-05T00:05:38+08:00">
+                2020-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.4k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<a id="more"></a>
+<h1 id="第十四章-子查询"><a href="#第十四章-子查询" class="headerlink" title="第十四章 子查询"></a>第十四章 子查询</h1><p>在我们的数据库中，有三个表：</p>
+<ul>
+<li>orders表存储订单编号，订单日期，顾客编号；</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">-----------+---------------------+---------+</span></span><br><span class="line">| order_num | order_date          | cust_id |</span><br><span class="line">+<span class="comment">-----------+---------------------+---------+</span></span><br><span class="line">|     20005 | 2005-09-01 00:00:00 |   10001 |</span><br><span class="line">|     20006 | 2005-09-12 00:00:00 |   10003 |</span><br><span class="line">|     20007 | 2005-09-30 00:00:00 |   10004 |</span><br><span class="line">|     20008 | 2005-10-03 00:00:00 |   10005 |</span><br><span class="line">|     20009 | 2005-10-08 00:00:00 |   10001 |</span><br><span class="line">+<span class="comment">-----------+---------------------+---------+</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>customers表存储顾客信息，包括姓名，地址，联系方式等；</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">---------+----------------+---------------------+-----------+------------+----------+--------------+--------------+---------------------+</span></span><br><span class="line">| cust_id | cust_name      | cust_address        | cust_city | cust_state | cust_zip | cust_country | cust_contact | cust_email          |</span><br><span class="line">+<span class="comment">---------+----------------+---------------------+-----------+------------+----------+--------------+--------------+---------------------+</span></span><br><span class="line">|   10001 | Coyote Inc.    | 200 Maple Lane      | Detroit   | MI         | 44444    | USA          | Y Lee        | ylee@coyote.com     |</span><br><span class="line">|   10002 | Mouse House    | 333 Fromage Lane    | Columbus  | OH         | 43333    | USA          | Jerry Mouse  | NULL                |</span><br><span class="line">|   10003 | Wascals        | 1 Sunny Place       | Muncie    | IN         | 42222    | USA          | Jim Jones    | rabbit@wascally.com |</span><br><span class="line">|   10004 | Yosemite Place | 829 Riverside Drive | Phoenix   | AZ         | 88888    | USA          | Y Sam        | sam@yosemite.com    |</span><br><span class="line">|   10005 | E Fudd         | 4545 53rd Street    | Chicago   | IL         | 54545    | USA          | E Fudd       | NULL                |</span><br><span class="line">+<span class="comment">---------+----------------+---------------------+-----------+------------+----------+--------------+--------------+---------------------+</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>orderitems表存储订单编号，订单数量，产品编号，价格等。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+-----------+------------+---------+----------+------------+</span><br><span class="line">| order_num | order_item | prod_id | quantity | item_price |</span><br><span class="line">+-----------+------------+---------+----------+------------+</span><br><span class="line">|     20005 |          1 | ANV01   |       10 |       5.99 |</span><br><span class="line">|     20005 |          2 | ANV02   |        3 |       9.99 |</span><br><span class="line">|     20005 |          3 | TNT2    |        5 |      10.00 |</span><br><span class="line">|     20005 |          4 | FB      |        1 |      10.00 |</span><br><span class="line">|     20006 |          1 | JP2000  |        1 |      55.00 |</span><br><span class="line">|     20007 |          1 | TNT2    |      100 |      10.00 |</span><br><span class="line">|     20008 |          1 | FC      |       50 |       2.50 |</span><br><span class="line">|     20009 |          1 | FB      |        1 |      10.00 |</span><br><span class="line">|     20009 |          2 | OL1     |        1 |       8.99 |</span><br><span class="line">|     20009 |          3 | SLING   |        1 |       4.49 |</span><br><span class="line">|     20009 |          4 | ANV03   |        1 |      14.99 |</span><br><span class="line">+-----------+------------+---------+----------+------------+</span><br></pre></td></tr></table></figure>
+<h2 id="14-1-子查询"><a href="#14-1-子查询" class="headerlink" title="14.1 子查询"></a>14.1 子查询</h2><p>现在我们想要知道所有订购了TNT2的所有用户的基本信息，应该怎么办呢？</p>
+<p>基本的流程如下：</p>
+<ul>
+<li>TNT2产品是来自orderitems表，我们可以找到订单编号order_num；</li>
+<li>从订单编号order_num可以找到顾客编号cust_id;</li>
+<li>从顾客编号cust_id可以查到估计的姓名地址信息。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> order_num <span class="keyword">FROM</span> orderitems <span class="keyword">WHERE</span> prod_id = <span class="string">'TNT2'</span>;</span><br><span class="line"></span><br><span class="line">+<span class="comment">-----------+</span></span><br><span class="line">| order_num |</span><br><span class="line">+<span class="comment">-----------+</span></span><br><span class="line">|     20005 |</span><br><span class="line">|     20007 |</span><br><span class="line">+<span class="comment">-----------+</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> cust_id <span class="keyword">FROM</span> orders <span class="keyword">WHERE</span> order_num <span class="keyword">IN</span> (<span class="number">20005</span>,<span class="number">20007</span>);</span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+</span></span><br><span class="line">| cust_id |</span><br><span class="line">+<span class="comment">---------+</span></span><br><span class="line">|   10001 |</span><br><span class="line">|   10004 |</span><br><span class="line">+<span class="comment">---------+</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> cust_name,cust_contact <span class="keyword">FROM</span> customers <span class="keyword">WHERE</span> cust_id <span class="keyword">IN</span> (<span class="number">10001</span>,<span class="number">10004</span>); </span><br><span class="line"></span><br><span class="line">+<span class="comment">----------------+--------------+</span></span><br><span class="line">| cust_name      | cust_contact |</span><br><span class="line">+<span class="comment">----------------+--------------+</span></span><br><span class="line">| Coyote Inc.    | Y Lee        |</span><br><span class="line">| Yosemite Place | Y Sam        |</span><br><span class="line">+<span class="comment">----------------+--------------+</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 经过上述步骤，我们最终找到了购买力TNT2产品的顾客信息，但是你也能发现每一步操作的输出都作为下一步的输入</span></span><br><span class="line"><span class="comment">-- 每次都需要我们根据输出值人为地写查询，非常不方便</span></span><br><span class="line"><span class="comment">-- 所以能不能直接将上一步的输出作为下一步的输入呢，这就是子查询</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> cust_name,cust_contact </span><br><span class="line"><span class="keyword">FROM</span> customers </span><br><span class="line"><span class="keyword">WHERE</span> cust_id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> cust_id </span><br><span class="line">                  <span class="keyword">FROM</span> orders </span><br><span class="line">                  <span class="keyword">WHERE</span> order_num </span><br><span class="line">                  <span class="keyword">IN</span> (<span class="keyword">SELECT</span> order_num </span><br><span class="line">                      <span class="keyword">FROM</span> orderitems </span><br><span class="line">                      <span class="keyword">WHERE</span> prod_id = <span class="string">'TNT2'</span></span><br><span class="line">                  )</span><br><span class="line">); </span><br><span class="line"></span><br><span class="line"><span class="comment">-- 也能得到相同的结果，但是阅读就是那么容易了，性能往往也不好，有点类似于递归之类的东西</span></span><br></pre></td></tr></table></figure>
+<h2 id="14-2-计算字段使用子查询"><a href="#14-2-计算字段使用子查询" class="headerlink" title="14.2 计算字段使用子查询"></a>14.2 计算字段使用子查询</h2><p>下面看如下的例子，嵌套了一个子查询，但是这个子查询是一个计算字段。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> cust_name,cust_state,(<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) </span><br><span class="line">                             <span class="keyword">FROM</span> orders</span><br><span class="line">                             <span class="keyword">WHERE</span> orders.cust_id = customers.cust_id</span><br><span class="line">) <span class="keyword">AS</span> orders</span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">by</span> cust_name;</span><br><span class="line"></span><br><span class="line">+<span class="comment">----------------+------------+--------+</span></span><br><span class="line">| cust_name      | cust_state | orders |</span><br><span class="line">+<span class="comment">----------------+------------+--------+</span></span><br><span class="line">| Coyote Inc.    | MI         |      2 |</span><br><span class="line">| E Fudd         | IL         |      1 |</span><br><span class="line">| Mouse House    | OH         |      0 |</span><br><span class="line">| Wascals        | IN         |      1 |</span><br><span class="line">| Yosemite Place | AZ         |      1 |</span><br><span class="line">+<span class="comment">----------------+------------+--------+</span></span><br></pre></td></tr></table></figure>
+<p>我们先看最外层，从customers表中，对每一位顾客，获取姓名，所在州以及一个计算字段。</p>
+<p>这个计算字段是什么呢，是在orders表中的一个聚集函数，统计每位顾客cust_id 的订单总数，取别名为orders.</p>
+<p>这里为什么采用了完全限定名呢，是因为orders,customers里都有名为cust_id的列，为了避免歧义和错误，使用完全限定名。</p>
+<h1 id="第十五章-联结表"><a href="#第十五章-联结表" class="headerlink" title="第十五章 联结表"></a>第十五章 联结表</h1><p>我们先来看两个表：第一个表存储的是供应商vendors信息，第二个表存储的是产品products目录。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">---------+----------------+-----------------+-------------+------------+----------+--------------+</span></span><br><span class="line">| vend_id | vend_name      | vend_address    | vend_city   | vend_state | vend_zip | vend_country |</span><br><span class="line">+<span class="comment">---------+----------------+-----------------+-------------+------------+----------+--------------+</span></span><br><span class="line">|    1001 | Anvils R Us    | 123 Main Street | Southfield  | MI         | 48075    | USA          |</span><br><span class="line">|    1002 | LT Supplies    | 500 Park Street | Anytown     | OH         | 44333    | USA          |</span><br><span class="line">|    1003 | ACME           | 555 High Street | Los Angeles | CA         | 90046    | USA          |</span><br><span class="line">|    1004 | Furball Inc.   | 1000 5th Avenue | New York    | NY         | 11111    | USA          |</span><br><span class="line">|    1005 | Jet <span class="keyword">Set</span>        | <span class="number">42</span> Galaxy Road  | London      | <span class="literal">NULL</span>       | N16 <span class="number">6</span>PS  | England      |</span><br><span class="line">|    <span class="number">1006</span> | Jouets Et Ours | <span class="number">1</span> Rue Amusement | Paris       | <span class="literal">NULL</span>       | <span class="number">45678</span>    | France       |</span><br><span class="line">+<span class="comment">---------+----------------+-----------------+-------------+------------+----------+--------------+</span></span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+---------+----------------+------------+----------------------------------------------------------------+</span></span><br><span class="line">| prod_id | vend_id | prod_name      | prod_price | prod_desc                                                      |</span><br><span class="line">+<span class="comment">---------+---------+----------------+------------+----------------------------------------------------------------+</span></span><br><span class="line">| ANV01   |    <span class="number">1001</span> | <span class="number">.5</span> ton anvil   |       <span class="number">5.99</span> | <span class="number">.5</span> ton anvil, black, <span class="keyword">complete</span> <span class="keyword">with</span> handy hook                  |</span><br><span class="line">| ANV02   |    <span class="number">1001</span> | <span class="number">1</span> ton anvil    |       <span class="number">9.99</span> | <span class="number">1</span> ton anvil, black, <span class="keyword">complete</span> <span class="keyword">with</span> handy hook <span class="keyword">and</span> carrying <span class="keyword">case</span> |</span><br><span class="line">| ANV03   |    <span class="number">1001</span> | <span class="number">2</span> ton anvil    |      <span class="number">14.99</span> | <span class="number">2</span> ton anvil, black, <span class="keyword">complete</span> <span class="keyword">with</span> handy hook <span class="keyword">and</span> carrying <span class="keyword">case</span> |</span><br><span class="line">| DTNTR   |    <span class="number">1003</span> | Detonator      |      <span class="number">13.00</span> | Detonator (plunger powered), fuses <span class="keyword">not</span> included                |</span><br><span class="line">| FB      |    <span class="number">1003</span> | Bird <span class="keyword">seed</span>      |      <span class="number">10.00</span> | <span class="keyword">Large</span> bag (suitable <span class="keyword">for</span> road runners)                          |</span><br><span class="line">| FC      |    <span class="number">1003</span> | Carrots        |       <span class="number">2.50</span> | Carrots (rabbit hunting season <span class="keyword">only</span>)                           |</span><br><span class="line">| FU1     |    <span class="number">1002</span> | Fuses          |       <span class="number">3.42</span> | <span class="number">1</span> dozen, extra <span class="keyword">long</span>                                            |</span><br><span class="line">| JP1000  |    <span class="number">1005</span> | JetPack <span class="number">1000</span>   |      <span class="number">35.00</span> | JetPack <span class="number">1000</span>, intended <span class="keyword">for</span> single <span class="keyword">use</span>                          |</span><br><span class="line">| JP2000  |    <span class="number">1005</span> | JetPack <span class="number">2000</span>   |      <span class="number">55.00</span> | JetPack <span class="number">2000</span>, multi-<span class="keyword">use</span>                                        |</span><br><span class="line">| OL1     |    <span class="number">1002</span> | Oil can        |       <span class="number">8.99</span> | Oil can, red                                                   |</span><br><span class="line">| <span class="keyword">SAFE</span>    |    <span class="number">1003</span> | <span class="keyword">Safe</span>           |      <span class="number">50.00</span> | <span class="keyword">Safe</span> <span class="keyword">with</span> combination <span class="keyword">lock</span>                                     |</span><br><span class="line">| SLING   |    <span class="number">1003</span> | Sling          |       <span class="number">4.49</span> | Sling, one <span class="keyword">size</span> fits <span class="keyword">all</span>                                       |</span><br><span class="line">| TNT1    |    <span class="number">1003</span> | TNT (<span class="number">1</span> stick)  |       <span class="number">2.50</span> | TNT, red, single stick                                         |</span><br><span class="line">| TNT2    |    <span class="number">1003</span> | TNT (<span class="number">5</span> sticks) |      <span class="number">10.00</span> | TNT, red, pack <span class="keyword">of</span> <span class="number">10</span> sticks                                    |</span><br><span class="line">+<span class="comment">---------+---------+----------------+------------+----------------------------------------------------------------+</span></span><br></pre></td></tr></table></figure>
+<p>我们来想一想，为什么需要将供应商信息和产品信息分开存储成两个表呢？</p>
+<ul>
+<li>假设在一个表中，那么每一个供应商的产品都会有一条记录供应商地址，联系方式之列的条目，那么就会出现很多的重复；</li>
+<li>重复多了，出错的概率就会很大了，也会出现不一致的情况；</li>
+<li>需要改动的时候，比如供应商搬家了，只需要改一个地方就行了。</li>
+</ul>
+<p>所以关系数据库涉及的一个基础就是不允许相同的数据出现多次，那么在把信息分解成多个表之后，就必须靠某种关系(relation)将表进行<strong>联结</strong>（join）。</p>
+<h2 id="15-1-创建联结"><a href="#15-1-创建联结" class="headerlink" title="15.1 创建联结"></a>15.1 创建联结</h2><p>products只存储产品信息，它除了存储供应商ID（vendors表的主键）外不存储其他供应商信息。vendors表的主键又叫做products的外键，它是两个表的联结。</p>
+<p><strong>外键</strong>（foreign key）：外键为某个表中的一列，它包含另一个表的主键值，定义了两个表之间的联系。</p>
+<p><strong>可伸缩性</strong>（scale)：能够适应不断增加的工作量而不失败。设计良好的数据库或应用程序称之为可伸缩性好（scale well）.</p>
+<p>虽然分解数据能够有效地存储，更方便处理数据并且具有很好的伸缩性，但是数据存储在多个表中，无疑给检索带来了困难，所以我们需要用联结来解决多个表的信息检索问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">SELECT vend_name,prod_name,prod_price 				-- 来自两个表的列</span><br><span class="line">FROM vendors,products													-- 要联结的两个表</span><br><span class="line">WHERE vendors.vend_id = products.vend_id 			-- 利用主键与外键进行联结</span><br><span class="line">ORDER BY vend_name,prod_name;</span><br><span class="line"></span><br><span class="line">+-------------+----------------+------------+</span><br><span class="line">| vend_name   | prod_name      | prod_price |</span><br><span class="line">+-------------+----------------+------------+</span><br><span class="line">| ACME        | Bird seed      |      10.00 |</span><br><span class="line">| ACME        | Carrots        |       2.50 |</span><br><span class="line">| ACME        | Detonator      |      13.00 |</span><br><span class="line">| ACME        | Safe           |      50.00 |</span><br><span class="line">| ACME        | Sling          |       4.49 |</span><br><span class="line">| ACME        | TNT (1 stick)  |       2.50 |</span><br><span class="line">| ACME        | TNT (5 sticks) |      10.00 |</span><br><span class="line">| Anvils R Us | .5 ton anvil   |       5.99 |</span><br><span class="line">| Anvils R Us | 1 ton anvil    |       9.99 |</span><br><span class="line">| Anvils R Us | 2 ton anvil    |      14.99 |</span><br><span class="line">| Jet Set     | JetPack 1000   |      35.00 |</span><br><span class="line">| Jet Set     | JetPack 2000   |      55.00 |</span><br><span class="line">| LT Supplies | Fuses          |       3.42 |</span><br><span class="line">| LT Supplies | Oil can        |       8.99 |</span><br><span class="line">+-------------+----------------+------------+</span><br></pre></td></tr></table></figure>
+<h3 id="15-1-1-背后的逻辑"><a href="#15-1-1-背后的逻辑" class="headerlink" title="15.1.1 背后的逻辑"></a>15.1.1 背后的逻辑</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> vend_name,prod_name,prod_price</span><br><span class="line"><span class="keyword">FROM</span> vendors,products</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> vend_name,prod_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 总共有84=6*14行输出</span></span><br><span class="line"><span class="comment">-- 6和14分别是vendors,products表的行数</span></span><br><span class="line"><span class="comment">-- 这说明所谓表的联结不是物理上的联结，而是在查询中，将一个表的每行与另一个表的每行进行合并</span></span><br><span class="line"><span class="comment">-- 类似于笛卡尔积</span></span><br></pre></td></tr></table></figure>
+<p>所以上文中WHERE vendors.vend_id = products.vend_id实际上就是对笛卡尔积的结果进行过滤。</p>
+<h2 id="15-1-2-创建内部联结"><a href="#15-1-2-创建内部联结" class="headerlink" title="15.1.2 创建内部联结"></a>15.1.2 创建内部联结</h2><p>前面的联结是基于相等测试，所以称为等值联结（equijoin），或者内部联结。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> vend_name,prod_name,prod_price</span><br><span class="line"><span class="keyword">FROM</span> vendors <span class="keyword">INNER</span> <span class="keyword">JOIN</span> products</span><br><span class="line"><span class="keyword">ON</span> vendors.vend_id = products.vend_id;</span><br></pre></td></tr></table></figure>
+<p>与15.1的检索语句结果只是顺序不同而已。</p>
+<h2 id="15-2-联结多个表"><a href="#15-2-联结多个表" class="headerlink" title="15.2 联结多个表"></a>15.2 联结多个表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prod_name,vend_name,prod_price,quantity</span><br><span class="line"><span class="keyword">FROM</span> orderitems,products,vendors</span><br><span class="line"><span class="keyword">WHERE</span> products.vend_id=vendors.vend_id</span><br><span class="line">	<span class="keyword">AND</span> orderitems.prod_id = products.prod_id</span><br><span class="line">  <span class="keyword">AND</span> order_num = <span class="number">20005</span>;</span><br><span class="line">  </span><br><span class="line">+<span class="comment">----------------+-------------+------------+----------+</span></span><br><span class="line">| prod_name      | vend_name   | prod_price | quantity |</span><br><span class="line">+<span class="comment">----------------+-------------+------------+----------+</span></span><br><span class="line">| .5 ton anvil   | Anvils R Us |       5.99 |       10 |</span><br><span class="line">| 1 ton anvil    | Anvils R Us |       9.99 |        3 |</span><br><span class="line">| TNT (5 sticks) | ACME        |      10.00 |        5 |</span><br><span class="line">| Bird seed      | ACME        |      10.00 |        1 |</span><br><span class="line">+<span class="comment">----------------+-------------+------------+----------+</span></span><br></pre></td></tr></table></figure>
+<p>联结表相当于笛卡尔积，就像是找到了所有的联结方式，这些联结里很多是错误的，于是必须要用过滤条件，不然性能下降很厉害。</p>
+<p>现在回顾下第十四章中返回订购产品TNT2的客户列表，我们现在有了如下的解决方案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> cust_name,cust_contact</span><br><span class="line"><span class="keyword">FROM</span> customers,orders,orderitems</span><br><span class="line"><span class="keyword">WHERE</span> customers.cust_id=orders.cust_id</span><br><span class="line">	<span class="keyword">AND</span> orders.order_num = orderitems.order_num</span><br><span class="line">	<span class="keyword">AND</span> prod_id = <span class="string">'TNT2'</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="第十六章-创建高级联结"><a href="#第十六章-创建高级联结" class="headerlink" title="第十六章 创建高级联结"></a>第十六章 创建高级联结</h1><p>除了<strong>内部联结</strong>之外，我么还有其他3种常见的联结方式，分别为<strong>自连接，自然联结和外部联结</strong>。</p>
+<h2 id="16-1-使用表别名"><a href="#16-1-使用表别名" class="headerlink" title="16.1 使用表别名"></a>16.1 使用表别名</h2><p>在对不同的表进行联结时，给表名起别名可以有如下作用：</p>
+<ul>
+<li>别名往往更简单，所以每次不需要写表的全频，而只是别名，这样就会缩短SQL语句；</li>
+<li>MySQL允许在单条SELECT语句中多次使用相同的表，比如表与自身进行联结（就会出现至少两个相同的表名），此时可以取别名p1,p2进行区分。</li>
+</ul>
+<p>下面给出别名的例子，</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> cust_name,cust_contact</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">AS</span> c,orders <span class="keyword">AS</span> o,orderitems <span class="keyword">AS</span> oi</span><br><span class="line"><span class="keyword">WHERE</span> c.cust_id = o.cust_id</span><br><span class="line">	<span class="keyword">AND</span> oi.order_num = o.order_num</span><br><span class="line">	<span class="keyword">AND</span> prod_id = <span class="string">'TNT2'</span>;</span><br><span class="line">	</span><br><span class="line">+<span class="comment">----------------+--------------+</span></span><br><span class="line">| cust_name      | cust_contact |</span><br><span class="line">+<span class="comment">----------------+--------------+</span></span><br><span class="line">| Coyote Inc.    | Y Lee        |</span><br><span class="line">| Yosemite Place | Y Sam        |</span><br><span class="line">+<span class="comment">----------------+--------------+</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 这里联结了三个表，分别取别名为c,o,oi,可想而知，当相同名字的表进行联结时，会造成误解，到底是哪个表的列。</span></span><br></pre></td></tr></table></figure>
+<h2 id="16-2-不同类型的联结"><a href="#16-2-不同类型的联结" class="headerlink" title="16.2 不同类型的联结"></a>16.2 不同类型的联结</h2><p>下面我们介绍三种类型的联结。</p>
+<h3 id="16-2-1-自联结"><a href="#16-2-1-自联结" class="headerlink" title="16.2.1 自联结"></a>16.2.1 自联结</h3><p>自联结就是表与自己进行联结，此时别名很重要。现在假设产品DTNTR出现了质量问题，我们想看看这个产品的供应商的其他产品是不是也有问题，所以我们需要找到产品DTNTR的供应商，然后找这个供应商所有的产品。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prod_id,prod_name</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> vend_id = (<span class="keyword">SELECT</span> vend_id</span><br><span class="line">                 <span class="keyword">FROM</span> products</span><br><span class="line">                 <span class="keyword">WHERE</span> prod_id = <span class="string">"DTNTR"</span>);</span><br><span class="line">                 </span><br><span class="line">+<span class="comment">---------+----------------+</span></span><br><span class="line">| prod_id | prod_name      |</span><br><span class="line">+<span class="comment">---------+----------------+</span></span><br><span class="line">| DTNTR   | Detonator      |</span><br><span class="line">| FB      | Bird seed      |</span><br><span class="line">| FC      | Carrots        |</span><br><span class="line">| SAFE    | Safe           |</span><br><span class="line">| SLING   | Sling          |</span><br><span class="line">| TNT1    | TNT (1 stick)  |</span><br><span class="line">| TNT2    | TNT (5 sticks) |</span><br><span class="line">+<span class="comment">---------+----------------+</span></span><br></pre></td></tr></table></figure>
+<p>上面是通过子查询得到呢，那么如果要通过联结呢？（子查询和联结都可以完成任务，关键是性能上的差异）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> p1.prod_id,p1.prod_name</span><br><span class="line"><span class="keyword">FROM</span> products <span class="keyword">AS</span> p1, products <span class="keyword">AS</span> p2</span><br><span class="line"><span class="keyword">WHERE</span> p1.vend_id = p2.vend_id</span><br><span class="line">	<span class="keyword">AND</span> p2.prod_id = <span class="string">"DTNTR"</span>;</span><br><span class="line">	</span><br><span class="line"><span class="comment">-- 设想有两个相同的表，左边的叫p1,右边的叫p2</span></span><br><span class="line"><span class="comment">-- 满足p2.prod_id = "DTNTR"的p2行与p1所有行进行笛卡尔积</span></span><br><span class="line"><span class="comment">-- 去除掉不满足vend_id相同的</span></span><br><span class="line"><span class="comment">-- 剩下的就是我们要的部分</span></span><br><span class="line">	</span><br><span class="line">+<span class="comment">---------+----------------+</span></span><br><span class="line">| prod_id | prod_name      |</span><br><span class="line">+<span class="comment">---------+----------------+</span></span><br><span class="line">| DTNTR   | Detonator      |</span><br><span class="line">| FB      | Bird seed      |</span><br><span class="line">| FC      | Carrots        |</span><br><span class="line">| SAFE    | Safe           |</span><br><span class="line">| SLING   | Sling          |</span><br><span class="line">| TNT1    | TNT (1 stick)  |</span><br><span class="line">| TNT2    | TNT (5 sticks) |</span><br><span class="line">+<span class="comment">---------+----------------+</span></span><br></pre></td></tr></table></figure>
+<h2 id="16-2-2-自然联结"><a href="#16-2-2-自然联结" class="headerlink" title="16.2.2 自然联结"></a>16.2.2 自然联结</h2><p>所谓自然联结，就是将不同列取出来，把重复的列扔掉。那么可以取一个表的所有列，其他表不取之前表中取过的列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.*,o.order_num,o.order_date,oi.prod_id,oi.quantity,oi.item_price</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">AS</span> c,orders <span class="keyword">AS</span> o,orderitems <span class="keyword">AS</span> oi</span><br><span class="line"><span class="keyword">WHERE</span> c.cust_id = o.cust_id</span><br><span class="line">	<span class="keyword">AND</span> oi.order_num = o.order_num</span><br><span class="line">	<span class="keyword">AND</span> prod_id = <span class="string">"FB"</span>;</span><br><span class="line">	</span><br><span class="line">+<span class="comment">---------+-------------+----------------+-----------+------------+----------+--------------+--------------+-----------------+-----------+---------------------+---------+----------+------------+</span></span><br><span class="line">| cust_id | cust_name   | cust_address   | cust_city | cust_state | cust_zip | cust_country | cust_contact | cust_email      | order_num | order_date          | prod_id | quantity | item_price |</span><br><span class="line">+<span class="comment">---------+-------------+----------------+-----------+------------+----------+--------------+--------------+-----------------+-----------+---------------------+---------+----------+------------+</span></span><br><span class="line">|   10001 | Coyote Inc. | 200 Maple Lane | Detroit   | MI         | 44444    | USA          | Y Lee        | ylee@coyote.com |     20005 | 2005-09-01 00:00:00 | FB      |        1 |      10.00 |</span><br><span class="line">|   10001 | Coyote Inc. | 200 Maple Lane | Detroit   | MI         | 44444    | USA          | Y Lee        | ylee@coyote.com |     20009 | 2005-10-08 00:00:00 | FB      |        1 |      10.00 |</span><br><span class="line">+<span class="comment">---------+-------------+----------------+-----------+------------+----------+--------------+--------------+-----------------+-----------+---------------------+---------+----------+------------+</span></span><br></pre></td></tr></table></figure>
+<h2 id="16-2-3-外部联结"><a href="#16-2-3-外部联结" class="headerlink" title="16.2.3 外部联结"></a>16.2.3 外部联结</h2><p>我们通过比较一个内部联结和外部联结的例子进行说明。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.cust_id,orders.order_num</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">INNER</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.cust_id = orders.cust_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 两个表作笛卡尔积，不满足cust_id相同的被扔掉</span></span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+-----------+</span></span><br><span class="line">| cust_id | order_num |</span><br><span class="line">+<span class="comment">---------+-----------+</span></span><br><span class="line">|   10001 |     20005 |</span><br><span class="line">|   10001 |     20009 |</span><br><span class="line">|   10003 |     20006 |</span><br><span class="line">|   10004 |     20007 |</span><br><span class="line">|   10005 |     20008 |</span><br><span class="line">+<span class="comment">---------+-----------+</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> customers.cust_id,orders.order_num</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.cust_id = orders.cust_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- orders表被加在customers表上，cust_id为10002的顾客没有订单信息，我们依然会将它算在联结中</span></span><br><span class="line"><span class="comment">-- 故外联结包含了那些在相关表中没有关联的行</span></span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+-----------+</span></span><br><span class="line">| cust_id | order_num |</span><br><span class="line">+<span class="comment">---------+-----------+</span></span><br><span class="line">|   10001 |     20005 |</span><br><span class="line">|   10001 |     20009 |</span><br><span class="line">|   10002 |      NULL |</span><br><span class="line">|   10003 |     20006 |</span><br><span class="line">|   10004 |     20007 |</span><br><span class="line">|   10005 |     20008 |</span><br><span class="line">+<span class="comment">---------+-----------+</span></span><br></pre></td></tr></table></figure>
+<p>下面是两个表的信息，我们看结果是怎么来的？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from orders;</span><br><span class="line">+<span class="comment">-----------+---------------------+---------+</span></span><br><span class="line">| order_num | order_date          | cust_id |</span><br><span class="line">+<span class="comment">-----------+---------------------+---------+</span></span><br><span class="line">|     20005 | 2005-09-01 00:00:00 |   10001 |</span><br><span class="line">|     20006 | 2005-09-12 00:00:00 |   10003 |</span><br><span class="line">|     20007 | 2005-09-30 00:00:00 |   10004 |</span><br><span class="line">|     20008 | 2005-10-03 00:00:00 |   10005 |</span><br><span class="line">|     20009 | 2005-10-08 00:00:00 |   10001 |</span><br><span class="line">+<span class="comment">-----------+---------------------+---------+</span></span><br><span class="line">5 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="keyword">select</span> * <span class="keyword">from</span> customers;</span><br><span class="line">+<span class="comment">---------+----------------+---------------------+-----------+------------+----------+--------------+--------------+---------------------+</span></span><br><span class="line">| cust_id | cust_name      | cust_address        | cust_city | cust_state | cust_zip | cust_country | cust_contact | cust_email          |</span><br><span class="line">+<span class="comment">---------+----------------+---------------------+-----------+------------+----------+--------------+--------------+---------------------+</span></span><br><span class="line">|   10001 | Coyote Inc.    | 200 Maple Lane      | Detroit   | MI         | 44444    | USA          | Y Lee        | ylee@coyote.com     |</span><br><span class="line">|   10002 | Mouse House    | 333 Fromage Lane    | Columbus  | OH         | 43333    | USA          | Jerry Mouse  | NULL                |</span><br><span class="line">|   10003 | Wascals        | 1 Sunny Place       | Muncie    | IN         | 42222    | USA          | Jim Jones    | rabbit@wascally.com |</span><br><span class="line">|   10004 | Yosemite Place | 829 Riverside Drive | Phoenix   | AZ         | 88888    | USA          | Y Sam        | sam@yosemite.com    |</span><br><span class="line">|   10005 | E Fudd         | 4545 53rd Street    | Chicago   | IL         | 54545    | USA          | E Fudd       | NULL                |</span><br><span class="line">+<span class="comment">---------+----------------+---------------------+-----------+------------+----------+--------------+--------------+---------------------+</span></span><br></pre></td></tr></table></figure>
+<h2 id="16-3-使用带聚集函数的联结"><a href="#16-3-使用带聚集函数的联结" class="headerlink" title="16.3 使用带聚集函数的联结"></a>16.3 使用带聚集函数的联结</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> customers.cust_name,customers.cust_id</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">INNER</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.cust_id = orders.cust_id;</span><br><span class="line"></span><br><span class="line">+<span class="comment">----------------+---------+</span></span><br><span class="line">| cust_name      | cust_id |</span><br><span class="line">+<span class="comment">----------------+---------+</span></span><br><span class="line">| Coyote Inc.    |   10001 |</span><br><span class="line">| Coyote Inc.    |   10001 |</span><br><span class="line">| Wascals        |   10003 |</span><br><span class="line">| Yosemite Place |   10004 |</span><br><span class="line">| E Fudd         |   10005 |</span><br><span class="line">+<span class="comment">----------------+---------+</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> customers.cust_name,customers.cust_id,<span class="keyword">COUNT</span>(orders.order_num) <span class="keyword">AS</span> num_ord</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">INNER</span> <span class="keyword">JOIN</span> orders</span><br><span class="line"><span class="keyword">ON</span> customers.cust_id = orders.cust_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> customers.cust_id;</span><br><span class="line"></span><br><span class="line">+<span class="comment">----------------+---------+---------+</span></span><br><span class="line">| cust_name      | cust_id | num_ord |</span><br><span class="line">+<span class="comment">----------------+---------+---------+</span></span><br><span class="line">| Coyote Inc.    |   10001 |       2 |</span><br><span class="line">| Wascals        |   10003 |       1 |</span><br><span class="line">| Yosemite Place |   10004 |       1 |</span><br><span class="line">| E Fudd         |   10005 |       1 |</span><br><span class="line">+<span class="comment">----------------+---------+---------+</span></span><br></pre></td></tr></table></figure>
+<h1 id="第十七章-组合查询"><a href="#第十七章-组合查询" class="headerlink" title="第十七章 组合查询"></a>第十七章 组合查询</h1><p>所谓组合查询，就是将多条select语句的结果合并成一个，使用Union命令，和集合的并集是一样的，不包含重复元素，如果想要重复元素，可以使用Union All命令。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> vend_id,prod_id,prod_price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> prod_price &lt;= <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">| vend_id | prod_id | prod_price |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">|    1003 | FC      |       2.50 |</span><br><span class="line">|    1002 | FU1     |       3.42 |</span><br><span class="line">|    1003 | SLING   |       4.49 |</span><br><span class="line">|    1003 | TNT1    |       2.50 |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> vend_id,prod_id,prod_price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> vend_id <span class="keyword">IN</span> (<span class="number">1001</span>,<span class="number">1002</span>);</span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">| vend_id | prod_id | prod_price |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">|    1001 | ANV01   |       5.99 |</span><br><span class="line">|    1001 | ANV02   |       9.99 |</span><br><span class="line">|    1001 | ANV03   |      14.99 |</span><br><span class="line">|    1002 | FU1     |       3.42 |</span><br><span class="line">|    1002 | OL1     |       8.99 |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> vend_id,prod_id,prod_price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> prod_price &lt;= <span class="number">5</span> <span class="keyword">OR</span> vend_id <span class="keyword">IN</span> (<span class="number">1001</span>,<span class="number">1002</span>); <span class="comment">-- 用where子句可以将上面两个语句合并</span></span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">| vend_id | prod_id | prod_price |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">|    1001 | ANV01   |       5.99 |</span><br><span class="line">|    1001 | ANV02   |       9.99 |</span><br><span class="line">|    1001 | ANV03   |      14.99 |</span><br><span class="line">|    1003 | FC      |       2.50 |</span><br><span class="line">|    1002 | FU1     |       3.42 |</span><br><span class="line">|    1002 | OL1     |       8.99 |</span><br><span class="line">|    1003 | SLING   |       4.49 |</span><br><span class="line">|    1003 | TNT1    |       2.50 |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> vend_id,prod_id,prod_price <span class="comment">-- 用Union将上述查询结果合并</span></span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> prod_price &lt;= <span class="number">5</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> vend_id,prod_id,prod_price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> vend_id <span class="keyword">IN</span> (<span class="number">1001</span>,<span class="number">1002</span>);</span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">| vend_id | prod_id | prod_price |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">|    1003 | FC      |       2.50 |</span><br><span class="line">|    1002 | FU1     |       3.42 |</span><br><span class="line">|    1003 | SLING   |       4.49 |</span><br><span class="line">|    1003 | TNT1    |       2.50 |</span><br><span class="line">|    1001 | ANV01   |       5.99 |</span><br><span class="line">|    1001 | ANV02   |       9.99 |</span><br><span class="line">|    1001 | ANV03   |      14.99 |</span><br><span class="line">|    1002 | OL1     |       8.99 |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> vend_id,prod_id,prod_price <span class="comment">-- 用Union将上述查询结果合并，但包括重复值</span></span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> prod_price &lt;= <span class="number">5</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> vend_id,prod_id,prod_price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> vend_id <span class="keyword">IN</span> (<span class="number">1001</span>,<span class="number">1002</span>);</span><br><span class="line"></span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">| vend_id | prod_id | prod_price |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br><span class="line">|    1003 | FC      |       2.50 |</span><br><span class="line">|    1002 | FU1     |       3.42 |</span><br><span class="line">|    1003 | SLING   |       4.49 |</span><br><span class="line">|    1003 | TNT1    |       2.50 |</span><br><span class="line">|    1001 | ANV01   |       5.99 |</span><br><span class="line">|    1001 | ANV02   |       9.99 |</span><br><span class="line">|    1001 | ANV03   |      14.99 |</span><br><span class="line">|    1002 | FU1     |       3.42 |</span><br><span class="line">|    1002 | OL1     |       8.99 |</span><br><span class="line">+<span class="comment">---------+---------+------------+</span></span><br></pre></td></tr></table></figure>
+<p>Union的使用规则：</p>
+<ul>
+<li>两条及以上的SELECT语句，用Union分隔；</li>
+<li>每个查询必须用相同的列，表达式和聚集函数；</li>
+<li>列数据类型必须兼容。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/子查询/" rel="tag"># 子查询</a>
+          
+            <a href="/tags/连接表/" rel="tag"># 连接表</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/03/MySQL数据分析/" rel="next" title="MySQL数据分析">
+                <i class="fa fa-chevron-left"></i> MySQL数据分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjkwMS8xOTQ0Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/ca.png" alt="Newbiejasper">
+            
+              <p class="site-author-name" itemprop="name">Newbiejasper</p>
+              <p class="site-description motion-element" itemprop="description">数学，物理，化学，生物及编程</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/newbiejasper" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:gaojx1012@pku.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第十四章-子查询"><span class="nav-number">1.</span> <span class="nav-text">第十四章 子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#14-1-子查询"><span class="nav-number">1.1.</span> <span class="nav-text">14.1 子查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-2-计算字段使用子查询"><span class="nav-number">1.2.</span> <span class="nav-text">14.2 计算字段使用子查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十五章-联结表"><span class="nav-number">2.</span> <span class="nav-text">第十五章 联结表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-创建联结"><span class="nav-number">2.1.</span> <span class="nav-text">15.1 创建联结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15-1-1-背后的逻辑"><span class="nav-number">2.1.1.</span> <span class="nav-text">15.1.1 背后的逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-2-创建内部联结"><span class="nav-number">2.2.</span> <span class="nav-text">15.1.2 创建内部联结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-2-联结多个表"><span class="nav-number">2.3.</span> <span class="nav-text">15.2 联结多个表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十六章-创建高级联结"><span class="nav-number">3.</span> <span class="nav-text">第十六章 创建高级联结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#16-1-使用表别名"><span class="nav-number">3.1.</span> <span class="nav-text">16.1 使用表别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-2-不同类型的联结"><span class="nav-number">3.2.</span> <span class="nav-text">16.2 不同类型的联结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-1-自联结"><span class="nav-number">3.2.1.</span> <span class="nav-text">16.2.1 自联结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-2-2-自然联结"><span class="nav-number">3.3.</span> <span class="nav-text">16.2.2 自然联结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-2-3-外部联结"><span class="nav-number">3.4.</span> <span class="nav-text">16.2.3 外部联结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-3-使用带聚集函数的联结"><span class="nav-number">3.5.</span> <span class="nav-text">16.3 使用带聚集函数的联结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第十七章-组合查询"><span class="nav-number">4.</span> <span class="nav-text">第十七章 组合查询</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Newbiejasper</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
